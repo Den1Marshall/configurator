@@ -1,7 +1,3 @@
-import { useAppDispatch } from './lib/useAppDispatch';
-import { useAppSelector } from './lib/useAppSelector';
-import { StateProvider } from './ui/StateProvider';
-
-export { StateProvider };
-export { useAppSelector };
-export { useAppDispatch };
+export { StateProvider } from './ui/StateProvider';
+export { useAppSelector } from './lib/useAppSelector';
+export { useAppDispatch } from './lib/useAppDispatch';
