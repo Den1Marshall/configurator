@@ -1,3 +1,1 @@
-import { MUIThemeProvider } from './ui/MUIThemeProvider';
-
-export { MUIThemeProvider };
+export { MUIThemeProvider } from './ui/MUIThemeProvider';
