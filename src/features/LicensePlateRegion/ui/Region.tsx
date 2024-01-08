@@ -19,10 +19,13 @@ export const Region: FC<{ region: any }> = ({ region }) => {
   useLayoutEffect(() => {
     if (
       ref.current &&
+      !isVisible &&
       ref.current.textContent &&
       currentCode === ref.current.textContent
     ) {
-      ref.current.scrollIntoView();
+      ref.current.scrollIntoView({
+        behavior: 'smooth',
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref.current, currentCode]);

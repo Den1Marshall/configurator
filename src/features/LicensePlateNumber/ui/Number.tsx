@@ -24,10 +24,13 @@ export const Number: FC<{
   useLayoutEffect(() => {
     if (
       ref.current &&
+      !isVisible &&
       ref.current.textContent &&
       currentNumber === +ref.current.textContent
     ) {
-      ref.current.scrollIntoView();
+      ref.current.scrollIntoView({
+        behavior: 'smooth',
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref.current]);
