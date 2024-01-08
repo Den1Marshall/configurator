@@ -25,7 +25,7 @@ export const Region: FC<{ region: any }> = ({ region }) => {
       ref.current.scrollIntoView();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref.current]);
+  }, [ref.current, currentCode]);
 
   useEffect(() => {
     if (isVisible) {

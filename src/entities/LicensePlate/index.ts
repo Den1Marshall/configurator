@@ -6,5 +6,9 @@ export {
 } from './model/licensePlateSlice';
 export { licensePlateRegionsArr } from './model/licensePlateRegions';
 export { licensePlateLettersArr } from './model/licensePlateLetters';
-export type { LicensePlateLetter, LicensePlateLetters } from './model/types';
+export type {
+  LicensePlateLetter,
+  LicensePlateLetters,
+  LicensePlateRegion,
+} from './model/types';
 export { LicensePlate } from './ui/LicensePlate';
