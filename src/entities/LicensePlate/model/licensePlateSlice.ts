@@ -5,6 +5,7 @@ import {
   LicensePlate,
   LicensePlateLetter,
   LicensePlateNumber,
+  LicensePlateNumbers,
   LicensePlateRegion,
 } from './types';
 
@@ -36,6 +37,10 @@ const licensePlateSlice = createSlice({
       state.numbers[numberPos] = value;
     },
 
+    updateAllNumbers(state, action: PayloadAction<LicensePlateNumbers>) {
+      state.numbers = action.payload;
+    },
+
     updateLetter(state, action: PayloadAction<UpdateLetter>) {
       const { letterPos, value } = action.payload;
       state.letters[letterPos] = value;
@@ -43,6 +48,6 @@ const licensePlateSlice = createSlice({
   },
 });
 
-export const { updateRegion, updateNumber, updateLetter } =
+export const { updateRegion, updateNumber, updateAllNumbers, updateLetter } =
   licensePlateSlice.actions;
 export default licensePlateSlice.reducer;

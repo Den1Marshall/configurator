@@ -1,5 +1,5 @@
 'use client';
-import { FC, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import { FC, useEffect, useMemo, useRef } from 'react';
 import { Typography } from '@/shared/ui';
 import { useAppDispatch, useAppSelector } from '@/app/state';
 import { useIntersectionObserver } from 'usehooks-ts';
@@ -21,7 +21,7 @@ export const Number: FC<{
   const entry = useIntersectionObserver(ref, { threshold: 1 });
   const isVisible = !!entry?.isIntersecting;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (
       ref.current &&
       !isVisible &&
@@ -33,7 +33,7 @@ export const Number: FC<{
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref.current]);
+  }, [ref.current, currentNumber]);
 
   useEffect(() => {
     if (isVisible && entry.target.textContent) {
