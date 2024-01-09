@@ -4,6 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import {
   LicensePlate,
   LicensePlateLetter,
+  LicensePlateLetters,
   LicensePlateNumber,
   LicensePlateNumbers,
   LicensePlateRegion,
@@ -45,9 +46,18 @@ const licensePlateSlice = createSlice({
       const { letterPos, value } = action.payload;
       state.letters[letterPos] = value;
     },
+
+    updateAllLetters(state, action: PayloadAction<LicensePlateLetters>) {
+      state.letters = action.payload;
+    },
   },
 });
 
-export const { updateRegion, updateNumber, updateAllNumbers, updateLetter } =
-  licensePlateSlice.actions;
+export const {
+  updateRegion,
+  updateNumber,
+  updateAllNumbers,
+  updateLetter,
+  updateAllLetters,
+} = licensePlateSlice.actions;
 export default licensePlateSlice.reducer;
