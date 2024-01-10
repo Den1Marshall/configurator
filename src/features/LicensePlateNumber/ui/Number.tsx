@@ -1,11 +1,12 @@
 'use client';
-import { FC, useEffect, useMemo, useRef } from 'react';
+import { FC, useEffect, useLayoutEffect, useRef } from 'react';
 import { Typography } from '@/shared/ui';
 import { useAppDispatch, useAppSelector } from '@/app/state';
-import { useIntersectionObserver } from 'usehooks-ts';
 import { updateNumber } from '@/entities/LicensePlate';
 import { LicensePlateNumber } from '@/entities/LicensePlate/model/types';
 import { NumberPos } from '../model/types';
+import { useInView } from 'react-intersection-observer';
+import { mergeRefs } from '@/shared/libs';
 
 export const Number: FC<{
   numberPos: NumberPos;
@@ -17,57 +18,53 @@ export const Number: FC<{
 
   const dispatch = useAppDispatch();
 
-  const ref = useRef<HTMLParagraphElement>(null);
-  const entry = useIntersectionObserver(ref, { threshold: 1 });
-  const isVisible = !!entry?.isIntersecting;
+  const numberRef = useRef<HTMLParagraphElement>(null);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+
+    onChange(inView, entry) {
+      if (inView && entry.target.textContent) {
+        dispatch(
+          updateNumber({
+            numberPos,
+            value: +entry.target.textContent as LicensePlateNumber,
+          })
+        );
+      }
+    },
+  });
 
   useEffect(() => {
     if (
-      ref.current &&
-      !isVisible &&
-      ref.current.textContent &&
-      currentNumber === +ref.current.textContent
+      !inView &&
+      numberRef.current &&
+      numberRef.current.textContent &&
+      currentNumber === +numberRef.current.textContent
     ) {
-      ref.current.scrollIntoView({
-        behavior: 'smooth',
-      });
+      numberRef.current.scrollIntoView();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref.current, currentNumber]);
+  }, [numberRef.current, currentNumber]);
 
-  useEffect(() => {
-    if (isVisible && entry.target.textContent) {
-      const visibleNumber = entry.target.textContent;
+  const heightRef = useRef(0);
 
-      dispatch(
-        updateNumber({
-          numberPos,
-          value: +visibleNumber as LicensePlateNumber,
-        })
-      );
+  useLayoutEffect(() => {
+    if (numberRef.current && numberRef.current.parentElement) {
+      heightRef.current =
+        numberRef.current.parentElement.getBoundingClientRect().height;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isVisible]);
-
-  const containerHeight = useMemo(() => {
-    if (ref.current && ref.current.parentElement) {
-      return ref.current.parentElement.getBoundingClientRect().height / 1.2;
-    } else {
-      return undefined;
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref.current]);
+  }, []);
 
   return (
     <Typography
-      ref={ref}
+      ref={mergeRefs<HTMLParagraphElement>(ref, numberRef)}
       key={number}
-      variant='h1'
       component={'p'}
       fontWeight={700}
       sx={{
         scrollSnapAlign: 'center',
-        fontSize: containerHeight,
+        fontSize: `${heightRef.current - 1}px`,
+        lineHeight: `${heightRef.current}px`,
       }}
     >
       {number}

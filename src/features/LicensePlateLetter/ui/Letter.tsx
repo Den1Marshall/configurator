@@ -1,10 +1,11 @@
 'use client';
-import { FC, useEffect, useMemo, useRef } from 'react';
+import { FC, useEffect, useLayoutEffect, useRef } from 'react';
 import { Typography } from '@/shared/ui';
 import { useAppDispatch, useAppSelector } from '@/app/state';
-import { useIntersectionObserver } from 'usehooks-ts';
 import type { LetterPos } from '../model/types';
 import { LicensePlateLetter, updateLetter } from '@/entities/LicensePlate';
+import { useInView } from 'react-intersection-observer';
+import { mergeRefs } from '@/shared/libs';
 
 export const Letter: FC<{
   letterPos: LetterPos;
@@ -16,49 +17,52 @@ export const Letter: FC<{
 
   const dispatch = useAppDispatch();
 
-  const ref = useRef<HTMLParagraphElement>(null);
-  const entry = useIntersectionObserver(ref, { threshold: 1 });
-  const isVisible = !!entry?.isIntersecting;
+  const letterRef = useRef<HTMLParagraphElement>(null);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+
+    onChange(inView, entry) {
+      if (inView) {
+        dispatch(
+          updateLetter({
+            letterPos,
+            value: entry.target.textContent as LicensePlateLetter,
+          })
+        );
+      }
+    },
+  });
 
   useEffect(() => {
     if (
-      ref.current &&
-      !isVisible &&
-      ref.current.textContent &&
-      currentLetter === ref.current.textContent
+      !inView &&
+      letterRef.current &&
+      currentLetter === letterRef.current.textContent
     ) {
-      ref.current.scrollIntoView({
-        behavior: 'smooth',
-      });
+      letterRef.current.scrollIntoView();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref.current, currentLetter]);
+  }, [letterRef.current, currentLetter]);
 
-  useEffect(() => {
-    if (isVisible && entry.target && entry.target.textContent) {
-      dispatch(updateLetter({ letterPos, value: letter }));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isVisible]);
+  const heightRef = useRef(0);
 
-  const containerHeight = useMemo(() => {
-    if (ref.current && ref.current.parentElement) {
-      return ref.current.parentElement.getBoundingClientRect().height / 1.2;
-    } else {
-      return undefined;
+  useLayoutEffect(() => {
+    if (letterRef.current && letterRef.current.parentElement) {
+      heightRef.current =
+        letterRef.current.parentElement.getBoundingClientRect().height;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref.current]);
+  }, []);
+
   return (
     <Typography
-      ref={ref}
+      ref={mergeRefs<HTMLParagraphElement>(ref, letterRef)}
       key={letter}
-      variant='h1'
       component={'p'}
       fontWeight={700}
       sx={{
         scrollSnapAlign: 'center',
-        fontSize: `${containerHeight}px`,
+        fontSize: `${heightRef.current - 1}px`,
+        lineHeight: `${heightRef.current}px`,
       }}
     >
       {letter}
