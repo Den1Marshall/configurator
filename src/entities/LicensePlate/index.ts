@@ -8,6 +8,7 @@ export {
 } from './model/licensePlateSlice';
 export { licensePlateRegionsArr } from './model/licensePlateRegions';
 export { licensePlateLettersArr } from './model/licensePlateLetters';
+export { licensePlateNumbersArr } from './model/licensePlateNumbers';
 export type {
   LicensePlateLetter,
   LicensePlateLetters,

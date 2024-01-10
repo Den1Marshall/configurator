@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { licensePlateNumbersArr } from '@/entities/LicensePlate/model/licensePlateNumbers';
+import { licensePlateNumbersArr } from '@/entities/LicensePlate';
 import { Number } from './Number';
 import { NumberPos } from '../model/types';
 import { Stack } from '@/shared/ui';
