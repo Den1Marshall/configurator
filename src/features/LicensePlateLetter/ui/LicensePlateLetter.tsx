@@ -13,6 +13,7 @@ export const LicensePlateLetter: FC<{ letterPos: LetterPos }> = ({
       width={'100%'}
       height={'100%'}
       sx={{
+        textAlign: letterPos === 1 ? 'left' : 'right',
         scrollSnapType: 'y mandatory',
         msOverflowStyle: 'none',
         scrollbarWidth: 'none',
