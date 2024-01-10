@@ -8,16 +8,16 @@ import { Stack } from '@/shared/ui';
 export const LicensePlateWidget: FC = () => {
   return (
     <LicensePlate>
-      <Stack direction={'row'} ml={'auto'}>
+      <Stack direction={'row'} maxWidth={'100%'} maxHeight={'100%'}>
         <LicensePlateRegion />
       </Stack>
-      <Stack direction={'row'}>
+      <Stack direction={'row'} maxWidth={'100%'} maxHeight={'100%'}>
         <LicensePlateNumber numberPos={0} />
         <LicensePlateNumber numberPos={1} />
         <LicensePlateNumber numberPos={2} />
         <LicensePlateNumber numberPos={3} />
       </Stack>
-      <Stack direction={'row'} mr={'auto'}>
+      <Stack direction={'row'} maxWidth={'100%'} maxHeight={'100%'}>
         <LicensePlateLetter letterPos={0} />
         <LicensePlateLetter letterPos={1} />
       </Stack>
