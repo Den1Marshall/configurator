@@ -411,4 +411,24 @@ export const licensePlateRegionsArr: LicensePlateRegion[] = [
     year: 2004,
     code: 'II',
   },
+  {
+    title: 'Електронний кабінет водія',
+    year: 2022,
+    code: 'ED',
+  },
+  {
+    title: 'Електронний кабінет водія',
+    year: 2022,
+    code: 'DC',
+  },
+  {
+    title: 'Дія',
+    year: 2022,
+    code: 'DI',
+  },
+  {
+    title: 'Дія',
+    year: 2022,
+    code: 'PD',
+  },
 ];

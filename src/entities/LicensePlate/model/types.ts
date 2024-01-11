@@ -1,4 +1,4 @@
-type LicensePlateYear = 2004 | 2013 | 2021;
+type LicensePlateYear = 2004 | 2013 | 2021 | 2022;
 export type LicensePlateRegion = {
   title: string;
   year: LicensePlateYear;
