@@ -2,8 +2,8 @@
 import { FC, ReactElement, useMemo } from 'react';
 import { Grow, Tooltip } from '@/shared/ui';
 import { useAppSelector } from '@/app/state';
-import { DIIA } from '../consts/diia';
-import { EKV } from '../consts/ekv';
+import { EKV } from '../consts/EKV';
+import { DIIA } from '../consts/DIIA';
 
 export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
   children,
