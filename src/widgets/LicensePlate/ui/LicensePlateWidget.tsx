@@ -4,12 +4,15 @@ import { LicensePlateRegion } from '@/features/LicensePlateRegion';
 import { LicensePlateLetter } from '@/features/LicensePlateLetter';
 import { FC } from 'react';
 import { Stack } from '@/shared/ui';
+import { LicensePlateRegionDescription } from '@/entities/LicensePlateRegionDescription';
 
 export const LicensePlateWidget: FC = () => {
   return (
     <LicensePlate>
       <Stack direction={'row'} maxWidth={'100%'} maxHeight={'100%'}>
-        <LicensePlateRegion />
+        <LicensePlateRegionDescription>
+          <LicensePlateRegion />
+        </LicensePlateRegionDescription>
       </Stack>
       <Stack direction={'row'} maxWidth={'100%'} maxHeight={'100%'}>
         <LicensePlateNumber numberPos={0} />

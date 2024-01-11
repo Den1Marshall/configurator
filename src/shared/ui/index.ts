@@ -4,6 +4,7 @@ export {
   Container,
   Typography,
   Box,
+  Paper,
   Button,
   AppBar,
   Grid,
@@ -16,4 +17,8 @@ export {
   FormControl,
   InputLabel,
   Autocomplete,
+  Tooltip,
+  Fade,
+  Grow,
+  Zoom,
 } from '@mui/material';
