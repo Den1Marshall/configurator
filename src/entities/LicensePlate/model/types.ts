@@ -26,6 +26,19 @@ export type LicensePlateLetter =
   | 'P'
   | 'T'
   | 'X';
+export type LicensePlateCyrillicLetter =
+  | 'А'
+  | 'В'
+  | 'С'
+  | 'Е'
+  | 'Н'
+  | 'І'
+  | 'К'
+  | 'М'
+  | 'О'
+  | 'Р'
+  | 'Т'
+  | 'Х';
 
 export type LicensePlateLetters = [LicensePlateLetter, LicensePlateLetter];
 
