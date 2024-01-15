@@ -1,0 +1,26 @@
+import { FC } from 'react';
+import { AppBar, Stack, Toolbar } from '@/shared/ui';
+import { SelectRegion } from '@/features/SelectRegion';
+import { SelectNumbers } from '@/features/SelectNumbers';
+import { SelectLetters } from '@/features/SelectLetters';
+
+export const Header: FC = () => {
+  return (
+    <AppBar sx={{ p: 1 }} component={'header'} color='transparent'>
+      <Toolbar
+        sx={{
+          position: 'relative',
+          width: '100%',
+          display: 'flex',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Stack mx={'auto'} direction={'row'} alignItems={'center'} spacing={4}>
+          <SelectRegion />
+          <SelectNumbers />
+          <SelectLetters />
+        </Stack>
+      </Toolbar>
+    </AppBar>
+  );
+};
