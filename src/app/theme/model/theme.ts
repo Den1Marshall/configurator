@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import { experimental_extendTheme as extendTheme } from '@mui/material';
 import { Roboto } from 'next/font/google';
 import { ukUA } from '@mui/material/locale';
 
@@ -7,25 +7,8 @@ const roboto = Roboto({
   weight: ['100', '300', '400', '500', '700', '900'],
 });
 
-export const lightTheme = createTheme(
+export const theme = extendTheme(
   {
-    palette: {
-      mode: 'light',
-    },
-
-    typography: {
-      fontFamily: roboto.style.fontFamily,
-    },
-  },
-  ukUA
-);
-
-export const darkTheme = createTheme(
-  {
-    palette: {
-      mode: 'dark',
-    },
-
     typography: {
       fontFamily: roboto.style.fontFamily,
     },
