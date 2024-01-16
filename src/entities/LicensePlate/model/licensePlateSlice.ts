@@ -22,7 +22,7 @@ interface UpdateLetter {
 const initialState: LicensePlate = {
   region: licensePlateRegionsArr.find((region) => region.code === 'DI')!,
   numbers: [0, 0, 0, 1],
-  letters: ['A', 'A'],
+  letters: ['Y', 'A'],
 };
 
 const licensePlateSlice = createSlice({
