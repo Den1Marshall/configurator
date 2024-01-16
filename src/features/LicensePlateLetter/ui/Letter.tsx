@@ -3,13 +3,17 @@ import { FC, useEffect, useLayoutEffect, useRef } from 'react';
 import { Typography } from '@/shared/ui';
 import { useAppDispatch, useAppSelector } from '@/app/state';
 import type { LetterPos } from '../model/types';
-import { LicensePlateLetter, updateLetter } from '@/entities/LicensePlate';
+import {
+  LicensePlateElectricLetter,
+  LicensePlateLetter,
+  updateLetter,
+} from '@/entities/LicensePlate';
 import { useInView } from 'react-intersection-observer';
 import { mergeRefs } from '@/shared/libs';
 
 export const Letter: FC<{
   letterPos: LetterPos;
-  letter: LicensePlateLetter;
+  letter: LicensePlateLetter | LicensePlateElectricLetter;
 }> = ({ letterPos, letter }) => {
   const currentLetter = useAppSelector(
     (state) => state.persistedLicensePlateReducer.letters[letterPos]

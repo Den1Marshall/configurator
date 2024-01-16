@@ -16,7 +16,7 @@ export const LicensePlateFlag: FC = () => {
     <Stack
       ref={ref}
       component={Box}
-      width={'10%'}
+      width={'100%'}
       height={'100%'}
       sx={{ background: 'rgb(25, 61, 157)', p: 1, pt: 5 }}
       alignItems={'center'}
@@ -31,11 +31,11 @@ export const LicensePlateFlag: FC = () => {
         ></Box>
       </Stack>
       <Typography
-        // variant='h3'
         component={'p'}
         mt={'auto'}
         fontWeight={700}
         fontSize={height + 'px'}
+        color='text.primary'
       >
         UA
       </Typography>

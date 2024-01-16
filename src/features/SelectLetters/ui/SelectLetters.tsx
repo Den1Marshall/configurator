@@ -4,6 +4,7 @@ import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { TextField } from '@/shared/ui';
 import { LicensePlateLetters, updateAllLetters } from '@/entities/LicensePlate';
 import { convertCyrillicToLatin } from '../libs/convertCyrillicToLatin';
+import { isValid } from '../libs/isValid';
 
 export const SelectLetters: FC = () => {
   const dispatch = useAppDispatch();
@@ -17,24 +18,21 @@ export const SelectLetters: FC = () => {
 
   const [value, setValue] = useState(letters.join(''));
 
-  const regExp = new RegExp(
-    '^(A|B|C|E|H|I|K|M|O|P|T|X|А|В|С|Е|Н|І|К|М|О|Р|Т|Х){0,2}$'
-  );
-  const valid = regExp.test(value) && value.length === 2;
-
   const handleChange = ({
     target: { value: targetValue },
   }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     targetValue = targetValue.toUpperCase();
-    const valid = regExp.test(targetValue);
 
-    if (valid && targetValue.length === 2) {
+    if (
+      isValid(targetValue.split('') as LicensePlateLetters, true) &&
+      targetValue.length === 2
+    ) {
       setValue(targetValue);
 
       const letters = convertCyrillicToLatin(targetValue).split('');
 
       dispatch(updateAllLetters(letters as LicensePlateLetters));
-    } else if (valid) {
+    } else if (isValid(targetValue.split('') as LicensePlateLetters)) {
       setValue(targetValue);
     }
   };
@@ -42,7 +40,7 @@ export const SelectLetters: FC = () => {
   return (
     <TextField
       inputProps={{ maxLength: 2 }}
-      error={!valid}
+      error={!isValid(value.split('') as LicensePlateLetters, true)}
       value={value}
       onChange={handleChange}
       label={'Введіть серію'}

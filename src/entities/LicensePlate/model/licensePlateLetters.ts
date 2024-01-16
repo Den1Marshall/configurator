@@ -1,5 +1,22 @@
-import { LicensePlateCyrillicLetter, LicensePlateLetter } from './types';
+import {
+  LicensePlateElectricLetter,
+  LicensePlateCyrillicLetter,
+  LicensePlateLetter,
+} from './types';
 
+export const licensePlateElectricLetters: LicensePlateElectricLetter[] = [
+  'Y',
+  'D',
+  'F',
+  'G',
+  'J',
+  'L',
+  'N',
+  'R',
+  'S',
+  'U',
+  'W',
+];
 export const licensePlateLettersArr: LicensePlateLetter[] = [
   'A',
   'B',
@@ -14,6 +31,10 @@ export const licensePlateLettersArr: LicensePlateLetter[] = [
   'T',
   'X',
 ];
+export const licensePlateAllLettersArr: (
+  | LicensePlateLetter
+  | LicensePlateElectricLetter
+)[] = [...licensePlateLettersArr, ...licensePlateElectricLetters];
 export const licensePlateCyrillicLettersArr: LicensePlateCyrillicLetter[] = [
   'А',
   'В',

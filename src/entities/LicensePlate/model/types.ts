@@ -26,6 +26,18 @@ export type LicensePlateLetter =
   | 'P'
   | 'T'
   | 'X';
+export type LicensePlateElectricLetter =
+  | 'Y'
+  | 'D'
+  | 'F'
+  | 'G'
+  | 'J'
+  | 'L'
+  | 'N'
+  | 'R'
+  | 'S'
+  | 'U'
+  | 'W';
 export type LicensePlateCyrillicLetter =
   | 'А'
   | 'В'
