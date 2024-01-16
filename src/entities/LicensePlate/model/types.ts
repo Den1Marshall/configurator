@@ -52,7 +52,10 @@ export type LicensePlateCyrillicLetter =
   | 'Т'
   | 'Х';
 
-export type LicensePlateLetters = [LicensePlateLetter, LicensePlateLetter];
+export type LicensePlateLetters = [
+  LicensePlateLetter | 'Y',
+  LicensePlateLetter | LicensePlateElectricLetter
+];
 
 export interface LicensePlate {
   region: LicensePlateRegion;
