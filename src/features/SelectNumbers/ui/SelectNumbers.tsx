@@ -39,6 +39,11 @@ export const SelectNumbers: FC = () => {
 
   return (
     <TextField
+      sx={{
+        '@media (max-width: 600px)': {
+          gridRow: '2/2',
+        },
+      }}
       inputProps={{ maxLength: 4, inputMode: 'numeric' }}
       error={!valid}
       value={value}

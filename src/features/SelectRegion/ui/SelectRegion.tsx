@@ -30,7 +30,13 @@ export const SelectRegion: FC = () => {
       isOptionEqualToValue={(option, value) => option.code === value.code}
       getOptionLabel={(option) => `${option.title} (${option.year})`}
       renderInput={(params) => <TextField {...params} label='Оберіть регіон' />}
-      sx={{ width: 300 }}
+      sx={{
+        width: 300,
+        '@media (max-width: 600px)': {
+          width: '100%',
+          gridColumn: '1/3',
+        },
+      }}
       disableClearable
     />
   );

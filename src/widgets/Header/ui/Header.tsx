@@ -6,16 +6,39 @@ import { SelectLetters } from '@/features/SelectLetters';
 
 export const Header: FC = () => {
   return (
-    <AppBar sx={{ p: 1 }} component={'header'} color='secondary'>
+    <AppBar
+      sx={{
+        p: 1,
+        '@media (max-width: 600px)': {
+          py: 3,
+        },
+      }}
+      component={'header'}
+      color='secondary'
+    >
       <Toolbar
         sx={{
           position: 'relative',
           width: '100%',
           display: 'flex',
-          flexWrap: 'wrap',
         }}
       >
-        <Stack mx={'auto'} direction={'row'} alignItems={'center'} spacing={4}>
+        <Stack
+          mx={'auto'}
+          direction={'row'}
+          sx={{
+            '@media (max-width: 600px)': {
+              display: 'grid',
+              gridTemplateColumns: '50% 50%',
+              gap: 1,
+              rowGap: 4,
+              justifyContent: 'space-between',
+              alignItems: 'space-between',
+            },
+          }}
+          alignItems={'center'}
+          gap={4}
+        >
           <SelectRegion />
           <SelectNumbers />
           <SelectLetters />

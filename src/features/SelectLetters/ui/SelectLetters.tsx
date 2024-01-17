@@ -39,6 +39,11 @@ export const SelectLetters: FC = () => {
 
   return (
     <TextField
+      sx={{
+        '@media (max-width: 600px)': {
+          gridRow: '2/2',
+        },
+      }}
       inputProps={{ maxLength: 2 }}
       error={!isValid(value.split('') as LicensePlateLetters, true)}
       value={value}
