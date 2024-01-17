@@ -9,6 +9,33 @@ const roboto = Roboto({
 
 export const theme = extendTheme(
   {
+    colorSchemes: {
+      dark: {
+        palette: {
+          primary: {
+            main: '#fff',
+          },
+          secondary: {
+            main: '#000',
+          },
+          background: {
+            default: '#000',
+          },
+        },
+      },
+
+      light: {
+        palette: {
+          primary: {
+            main: '#000',
+          },
+          secondary: {
+            main: '#fff',
+          },
+        },
+      },
+    },
+
     typography: {
       fontFamily: roboto.style.fontFamily,
     },

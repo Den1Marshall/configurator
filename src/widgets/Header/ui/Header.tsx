@@ -6,7 +6,7 @@ import { SelectLetters } from '@/features/SelectLetters';
 
 export const Header: FC = () => {
   return (
-    <AppBar sx={{ p: 1 }} component={'header'} color='transparent'>
+    <AppBar sx={{ p: 1 }} component={'header'} color='secondary'>
       <Toolbar
         sx={{
           position: 'relative',
