@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' data-color-scheme='light'>
       <body>
         <StateProvider>
           <AppRouterCacheProvider>
