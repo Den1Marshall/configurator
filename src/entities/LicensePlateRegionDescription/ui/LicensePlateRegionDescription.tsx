@@ -1,5 +1,5 @@
 'use client';
-import { FC, ReactElement, useMemo } from 'react';
+import { FC, ReactElement, useMemo, useState } from 'react';
 import { Grow, Tooltip } from '@/shared/ui';
 import { useAppSelector } from '@/app/state';
 import { EKV } from '../consts/EKV';
@@ -29,11 +29,14 @@ export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
     }
   }, [region]);
 
+  const [open, setOpen] = useState(Boolean(description));
+
   return (
     <Tooltip
       arrow
       TransitionComponent={Grow}
-      open={Boolean(description)}
+      open={open}
+      onClick={() => setOpen(false)}
       title={description}
     >
       {children}
