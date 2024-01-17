@@ -1,18 +1,27 @@
-import { licensePlateAllLettersArr } from '@/entities/LicensePlate';
+import {
+  licensePlateAllLettersArr,
+  type LicensePlateElectricLetter,
+  type LicensePlateLetter,
+} from '@/entities/LicensePlate';
 import { Stack } from '@/shared/ui';
 import { FC } from 'react';
 import { Letter } from './Letter';
 import { LetterPos } from '../model/types';
 
-export const LicensePlateLetter: FC<{ letterPos: LetterPos }> = ({
+export const ScrollLicensePlateLetter: FC<{ letterPos: LetterPos }> = ({
   letterPos,
 }) => {
-  let licensePlateLettersArr;
+  let licensePlateLettersArr: (
+    | LicensePlateLetter
+    | LicensePlateElectricLetter
+  )[] = [];
+
   if (letterPos === 0) {
     licensePlateLettersArr = licensePlateAllLettersArr.toSpliced(
       licensePlateAllLettersArr.findIndex((letter) => letter === 'D')
     );
   }
+
   return (
     <Stack
       overflow={'scroll'}
@@ -28,11 +37,22 @@ export const LicensePlateLetter: FC<{ letterPos: LetterPos }> = ({
         },
       }}
     >
-      {licensePlateLettersArr?.map((letter) => (
-        <Letter key={letter} letter={letter} letterPos={letterPos} />
-      )) ||
+      {(licensePlateLettersArr[0] &&
+        licensePlateLettersArr.map((letter) => (
+          <Letter
+            key={letter}
+            letter={letter}
+            letters={licensePlateLettersArr}
+            letterPos={letterPos}
+          />
+        ))) ||
         licensePlateAllLettersArr.map((letter) => (
-          <Letter key={letter} letter={letter} letterPos={letterPos} />
+          <Letter
+            key={letter}
+            letter={letter}
+            letters={licensePlateAllLettersArr}
+            letterPos={letterPos}
+          />
         ))}
     </Stack>
   );

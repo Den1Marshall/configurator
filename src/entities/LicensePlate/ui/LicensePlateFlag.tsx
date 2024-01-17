@@ -1,40 +1,28 @@
-'use client';
-import { FC, useLayoutEffect, useRef, useState } from 'react';
+import { FC } from 'react';
 import { Box, Stack, Typography } from '@/shared/ui';
 
 export const LicensePlateFlag: FC = () => {
-  const [height, setHeight] = useState(0);
-  const ref = useRef<HTMLHeadingElement>(null);
-
-  useLayoutEffect(() => {
-    if (ref.current) {
-      setHeight(ref.current.getBoundingClientRect().height / 4);
-    }
-  }, []);
-
   return (
     <Stack
-      ref={ref}
       component={Box}
-      width={'100%'}
+      width={'10%'}
       height={'100%'}
-      sx={{ background: 'rgb(25, 61, 157)', p: 1, pt: 5 }}
+      sx={{ background: 'rgb(25, 61, 157)', p: '1%', pt: '2.5%', pb: '1.5%' }}
       alignItems={'center'}
       justifyContent={'center'}
     >
-      <Stack width={'100%'} height={'35%'}>
-        <Box
-          sx={{ width: '100%', height: '100%', background: '#0057B7' }}
-        ></Box>
-        <Box
-          sx={{ width: '100%', height: '100%', background: '#FFDD00' }}
-        ></Box>
-      </Stack>
+      <Box
+        width={'100%'}
+        sx={{
+          aspectRatio: '2/1',
+          background: 'linear-gradient(#0057B7 50%, #FFDD00 50%)',
+        }}
+      ></Box>
       <Typography
+        variant='h2'
         component={'p'}
         mt={'auto'}
-        fontWeight={700}
-        fontSize={height + 'px'}
+        fontWeight={500}
         color='text.primary'
       >
         UA

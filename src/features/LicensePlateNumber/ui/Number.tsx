@@ -1,8 +1,8 @@
 'use client';
-import { FC, useEffect, useLayoutEffect, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { Typography } from '@/shared/ui';
 import { useAppDispatch, useAppSelector } from '@/app/state';
-import { updateNumber } from '@/entities/LicensePlate';
+import { licensePlateNumbersArr, updateNumber } from '@/entities/LicensePlate';
 import { LicensePlateNumber } from '@/entities/LicensePlate/model/types';
 import { NumberPos } from '../model/types';
 import { useInView } from 'react-intersection-observer';
@@ -46,25 +46,20 @@ export const Number: FC<{
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numberRef.current, currentNumber]);
 
-  const heightRef = useRef(0);
-
-  useLayoutEffect(() => {
-    if (numberRef.current && numberRef.current.parentElement) {
-      heightRef.current =
-        numberRef.current.parentElement.getBoundingClientRect().height;
-    }
-  }, []);
-
   return (
     <Typography
       ref={mergeRefs<HTMLParagraphElement>(ref, numberRef)}
       key={number}
+      variant='h1'
       component={'p'}
-      fontWeight={700}
+      fontWeight={500}
       sx={{
+        mt: number === licensePlateNumbersArr[0] ? '10%' : undefined,
+        mb:
+          number === licensePlateNumbersArr[licensePlateNumbersArr.length - 1]
+            ? '10%'
+            : undefined,
         scrollSnapAlign: 'center',
-        fontSize: `${heightRef.current - 1}px`,
-        lineHeight: `${heightRef.current}px`,
       }}
     >
       {number}

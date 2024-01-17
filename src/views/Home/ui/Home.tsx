@@ -7,6 +7,7 @@ export default function Home() {
     <>
       <Header />
       <Container
+        fixed
         component={'main'}
         maxWidth='xl'
         sx={{

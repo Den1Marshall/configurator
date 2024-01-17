@@ -1,7 +1,7 @@
 import { LicensePlate } from '@/entities/LicensePlate';
 import { LicensePlateNumber } from '@/features/LicensePlateNumber';
 import { LicensePlateRegion } from '@/features/LicensePlateRegion';
-import { LicensePlateLetter } from '@/features/LicensePlateLetter';
+import { ScrollLicensePlateLetter } from '@/features/ScrollLicensePlateLetter';
 import { FC } from 'react';
 import { Stack } from '@/shared/ui';
 import { LicensePlateRegionDescription } from '@/entities/LicensePlateRegionDescription';
@@ -21,8 +21,8 @@ export const LicensePlateWidget: FC = () => {
         <LicensePlateNumber numberPos={3} />
       </Stack>
       <Stack direction={'row'} maxWidth={'100%'} maxHeight={'100%'}>
-        <LicensePlateLetter letterPos={0} />
-        <LicensePlateLetter letterPos={1} />
+        <ScrollLicensePlateLetter letterPos={0} />
+        <ScrollLicensePlateLetter letterPos={1} />
       </Stack>
     </LicensePlate>
   );

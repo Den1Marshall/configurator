@@ -7,7 +7,7 @@ import {
 } from '@/entities/LicensePlate';
 import { mergeRefs } from '@/shared/libs';
 import { Typography } from '@mui/material';
-import { FC, useEffect, useLayoutEffect, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 export const Region: FC<{ region: LicensePlateRegion }> = ({ region }) => {
@@ -46,25 +46,22 @@ export const Region: FC<{ region: LicensePlateRegion }> = ({ region }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionRef.current, currentCode]);
 
-  const heightRef = useRef(0);
-
-  useLayoutEffect(() => {
-    if (regionRef.current && regionRef.current.parentElement) {
-      heightRef.current =
-        regionRef.current.parentElement.getBoundingClientRect().height;
-    }
-  }, []);
-
   return (
     <Typography
       ref={mergeRefs<HTMLParagraphElement>(ref, regionRef)}
       key={region.code}
+      variant='h1'
       component={'p'}
-      fontWeight={700}
+      fontWeight={500}
+      textAlign={'center'}
       sx={{
         scrollSnapAlign: 'center',
-        fontSize: `${heightRef.current - 1}px`,
-        lineHeight: `${heightRef.current}px`,
+        mt: region.code === licensePlateRegionsArr[0].code ? '10%' : undefined,
+        mb:
+          region.code ===
+          licensePlateRegionsArr[licensePlateRegionsArr.length - 1].code
+            ? '10%'
+            : undefined,
       }}
     >
       {region.code}
