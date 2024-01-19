@@ -1,4 +1,9 @@
 'use client';
+
+import { animated } from '@react-spring/web';
+import { Paper } from '.';
+
+export const AnimatedPaper = animated(Paper);
 export {
   Stack,
   Container,
