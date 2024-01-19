@@ -3,7 +3,6 @@ import LicensePlateReducer from '@/entities/LicensePlate';
 import storage from 'redux-persist/lib/storage';
 import {
   persistReducer,
-  persistStore,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -22,16 +21,18 @@ const persistedLicensePlateReducer = persistReducer(
   LicensePlateReducer
 );
 
-export const store = configureStore({
-  reducer: { persistedLicensePlateReducer },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
-});
-export const persistor = persistStore(store);
+export const makeStore = () => {
+  return configureStore({
+    reducer: { persistedLicensePlateReducer },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }),
+  });
+};
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];
