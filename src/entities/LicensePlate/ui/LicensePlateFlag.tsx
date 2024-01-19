@@ -23,7 +23,7 @@ export const LicensePlateFlag: FC = () => {
         component={'p'}
         mt={'auto'}
         fontWeight={500}
-        color='text.primary'
+        color='#fff'
       >
         UA
       </Typography>
