@@ -7,6 +7,7 @@ import {
   licensePlateRegionsArr,
   updateRegion,
 } from '@/entities/LicensePlate';
+import { SelectRegionPaper } from './SelectRegionPaper';
 
 export const SelectRegion: FC = () => {
   const dispatch = useAppDispatch();
@@ -17,6 +18,7 @@ export const SelectRegion: FC = () => {
 
   return (
     <Autocomplete
+      PaperComponent={SelectRegionPaper}
       value={region}
       onChange={(_event: any, newValue: LicensePlateRegion | null) => {
         const newRegion = licensePlateRegionsArr.find(
