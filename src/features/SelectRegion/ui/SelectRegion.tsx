@@ -34,10 +34,6 @@ export const SelectRegion: FC = () => {
       renderInput={(params) => <TextField {...params} label='Оберіть регіон' />}
       sx={{
         width: 300,
-        '@media (max-width: 600px)': {
-          width: '100%',
-          gridColumn: '1/3',
-        },
       }}
       disableClearable
     />

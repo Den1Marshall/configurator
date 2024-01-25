@@ -6,7 +6,7 @@ import { LicensePlateLetters, updateAllLetters } from '@/entities/LicensePlate';
 import { convertCyrillicToLatin } from '../libs/convertCyrillicToLatin';
 import { isValid } from '../libs/isValid';
 
-export const SelectLetters: FC = () => {
+export const SelectLettersMobile: FC = () => {
   const dispatch = useAppDispatch();
   const letters = useAppSelector(
     (state) => state.persistedLicensePlateReducer.letters
@@ -39,6 +39,7 @@ export const SelectLetters: FC = () => {
 
   return (
     <TextField
+      variant='standard'
       inputProps={{ maxLength: 2 }}
       error={!isValid(value.split('') as LicensePlateLetters, true)}
       value={value}

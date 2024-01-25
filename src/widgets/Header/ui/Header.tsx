@@ -9,9 +9,6 @@ export const Header: FC = () => {
     <AppBar
       sx={{
         p: 1,
-        '@media (max-width: 600px)': {
-          py: 3,
-        },
       }}
       component={'header'}
       color='secondary'
@@ -23,22 +20,7 @@ export const Header: FC = () => {
           display: 'flex',
         }}
       >
-        <Stack
-          mx={'auto'}
-          direction={'row'}
-          sx={{
-            '@media (max-width: 600px)': {
-              display: 'grid',
-              gridTemplateColumns: '50% 50%',
-              gap: 1,
-              rowGap: 4,
-              justifyContent: 'space-between',
-              alignItems: 'space-between',
-            },
-          }}
-          alignItems={'center'}
-          gap={4}
-        >
+        <Stack mx={'auto'} direction={'row'} alignItems={'center'} gap={4}>
           <SelectRegion />
           <SelectNumbers />
           <SelectLetters />

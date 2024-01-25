@@ -26,4 +26,5 @@ export {
   Fade,
   Grow,
   Zoom,
+  NativeSelect,
 } from '@mui/material';
