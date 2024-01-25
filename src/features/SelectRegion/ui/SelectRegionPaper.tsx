@@ -8,7 +8,6 @@ export const SelectRegionPaper: FC<PaperProps> = (props) => {
   const [spring, api] = useSpring(() => ({
     from: {
       scale: 0,
-      opacity: 0,
     },
   }));
 
@@ -16,7 +15,6 @@ export const SelectRegionPaper: FC<PaperProps> = (props) => {
     api.start({
       to: {
         scale: 1,
-        opacity: 1,
       },
       config: {
         precision: 0.0001,
