@@ -36,7 +36,7 @@ export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
       arrow
       TransitionComponent={Grow}
       open={open}
-      onClick={() => setOpen(false)}
+      onClick={() => setOpen(!open)}
       title={description}
     >
       {children}
