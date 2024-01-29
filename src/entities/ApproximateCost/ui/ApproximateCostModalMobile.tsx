@@ -1,5 +1,5 @@
 'use client';
-import { FC, useCallback, useLayoutEffect } from 'react';
+import { FC, useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -22,9 +22,16 @@ export const ApproximateCostModalMobile: FC<{
   setOpen: (value: boolean) => void;
 }> = ({ open, setOpen }) => {
   const theme = useTheme();
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    api.start({ from: { x: window.innerWidth } });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [{ x }, api] = useSpring(() => ({
-    x: window.innerWidth,
+    x: width,
   }));
 
   const openModal = useCallback(() => {
@@ -39,9 +46,9 @@ export const ApproximateCostModalMobile: FC<{
 
   const closeModal = useCallback(() => {
     api.start({
-      to: { x: window.innerWidth },
+      to: { x: width },
       onRest(result) {
-        if (result.finished && result.value.x === window.innerWidth) {
+        if (result.finished && result.value.x === width) {
           setOpen(false);
         }
       },
@@ -50,7 +57,7 @@ export const ApproximateCostModalMobile: FC<{
         precision: 0.0001,
       },
     });
-  }, [api, setOpen]);
+  }, [api, setOpen, width]);
 
   useLayoutEffect(() => {
     if (open) {
@@ -63,7 +70,7 @@ export const ApproximateCostModalMobile: FC<{
       if (down) {
         api.start({ to: { x: mx }, immediate: true });
       } else {
-        if (mx >= window.innerWidth / 2 || sx === 1) {
+        if (mx >= width / 2 || sx === 1) {
           closeModal();
         } else {
           openModal();
