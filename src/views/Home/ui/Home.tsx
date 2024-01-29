@@ -30,7 +30,7 @@ export default function Home() {
         }}
       >
         <LicensePlateWidget />
-        <ApproximateCost mobile={isMobile ? true : false} />
+        {!isMobile && <ApproximateCost />}
       </Container>
     </>
   );

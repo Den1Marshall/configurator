@@ -1,14 +1,13 @@
 'use client';
 import { useAppSelector } from '@/app/state';
-import { SxProps, Typography } from '@mui/material';
-import { animated, useSpring } from '@react-spring/web';
+import { SxProps } from '@mui/material';
 import { FC, useEffect, useMemo, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import HelpIcon from '@mui/icons-material/Help';
 import { ApproximateCostModal } from './ApproximateCostModal';
 import { ApproximateCostModalMobile } from './ApproximateCostModalMobile';
-
-const AnimatedTypography = animated(Typography);
+import { AnimatedTypography } from '@/shared/ui';
+import { useSpring } from '@react-spring/web';
 
 export const ApproximateCost: FC<{ sx?: SxProps; mobile?: boolean }> = ({
   sx,
@@ -38,7 +37,10 @@ export const ApproximateCost: FC<{ sx?: SxProps; mobile?: boolean }> = ({
           },
         });
       } else {
-        api.start({ to: { opacity: 0 }, config: { frequency: 0.5 } });
+        api.start({
+          to: { opacity: 0 },
+          config: { precision: 0.0001, frequency: 0.5 },
+        });
       }
     },
   });
@@ -107,9 +109,8 @@ export const ApproximateCost: FC<{ sx?: SxProps; mobile?: boolean }> = ({
         {hydrated && cost ? `Приблизна вартість - від ₴${cost}` : 'Безоплатні'}{' '}
         <HelpIcon
           sx={{
-            fontSize: 'max(1.5vh, 1vw)',
+            fontSize: 'max(1.5vh, 1.1vw)',
             position: 'absolute',
-            bottom: mobile ? '12px' : '16px',
             ml: 0.25,
           }}
         />
