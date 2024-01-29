@@ -10,6 +10,7 @@ import { detentToPx } from '../libs/detentToPx';
 import { findClosestDetent } from '../libs/findClosestDetent';
 import { SelectRegionMobile } from '@/features/SelectRegion';
 import { useTheme } from '@mui/material';
+import { ApproximateCost } from '@/entities/ApproximateCost';
 
 export const MobileHeader: FC = () => {
   const detents = [95.7, 58.5, 10];
@@ -106,6 +107,10 @@ export const MobileHeader: FC = () => {
       <SelectRegionMobile />
       <SelectNumbersMobile />
       <SelectLettersMobile />
+      <ApproximateCost
+        mobile
+        sx={{ top: '20%', left: '50%', transform: 'translate(-50%, -20%)' }}
+      />
     </AnimatedPaper>
   );
 };

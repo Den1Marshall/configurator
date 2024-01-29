@@ -3,6 +3,7 @@ import { Container } from '@/shared/ui';
 import { Header } from '@/widgets/Header';
 import { MobileHeader } from '@/widgets/MobileHeader';
 import { headers } from 'next/headers';
+import { ApproximateCost } from '@/entities/ApproximateCost';
 
 export default function Home() {
   const headersList = headers();
@@ -23,11 +24,13 @@ export default function Home() {
           width: '100%',
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
         <LicensePlateWidget />
+        <ApproximateCost mobile={isMobile ? true : false} />
       </Container>
     </>
   );

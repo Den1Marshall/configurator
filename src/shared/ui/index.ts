@@ -27,4 +27,11 @@ export {
   Grow,
   Zoom,
   NativeSelect,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  List,
+  ListItem,
+  ListItemText,
 } from '@mui/material';
