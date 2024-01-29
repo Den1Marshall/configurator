@@ -2,8 +2,11 @@
 import { useAppDispatch, useAppSelector } from '@/app/state';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { TextField } from '@/shared/ui';
-import { LicensePlateLetters, updateAllLetters } from '@/entities/LicensePlate';
-import { convertCyrillicToLatin } from '../libs/convertCyrillicToLatin';
+import {
+  LicensePlateLetters,
+  convertCyrillicToLatin,
+  updateAllLetters,
+} from '@/entities/LicensePlate';
 import { isValid } from '../libs/isValid';
 
 export const SelectLettersMobile: FC = () => {

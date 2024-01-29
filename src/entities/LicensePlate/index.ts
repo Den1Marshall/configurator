@@ -22,3 +22,4 @@ export type {
 } from './model/types';
 export { LicensePlate } from './ui/LicensePlate';
 export { isLetterElectric } from './libs/isLetterElectric';
+export { convertCyrillicToLatin } from './libs/convertCyrillicToLatin';
