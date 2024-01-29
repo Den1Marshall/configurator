@@ -96,6 +96,7 @@ export const ApproximateCostModalMobile: FC<{
         zIndex: theme.zIndex.tooltip + 1,
         touchAction: 'none',
       }}
+      transitionDuration={0}
       open={open}
       fullScreen
       hideBackdrop
