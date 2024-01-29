@@ -72,7 +72,13 @@ export const MobileHeader: FC = () => {
       <AnimatedPaper
         ref={ref}
         elevation={3}
-        style={{ y }}
+        style={{
+          y,
+          transform:
+            typeof window === 'undefined'
+              ? `translateY(${detents[0]}%)`
+              : undefined,
+        }}
         {...bind()}
         sx={{
           zIndex: theme.zIndex.tooltip + 1,
