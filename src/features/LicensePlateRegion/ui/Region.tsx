@@ -19,7 +19,7 @@ export const Region: FC<{ region: LicensePlateRegion }> = ({ region }) => {
 
   const regionRef = useRef<HTMLParagraphElement>(null);
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.53,
 
     onChange(inView, entry) {
       if (inView) {

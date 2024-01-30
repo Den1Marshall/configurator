@@ -20,7 +20,7 @@ export const Number: FC<{
 
   const numberRef = useRef<HTMLParagraphElement>(null);
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.53,
 
     onChange(inView, entry) {
       if (inView && entry.target.textContent) {
