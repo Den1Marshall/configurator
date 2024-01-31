@@ -45,23 +45,11 @@ export const theme = extendTheme(
 
 theme.typography.h1 = {
   lineHeight: '100%',
-  '@media (min-width:320px)': {
-    fontSize: '2.7rem',
+  '@media only screen and (min-width:320px) and (orientation: portrait)': {
+    fontSize: '13.9vw',
   },
-  '@media (min-width:360px)': {
-    fontSize: '3.1rem',
-  },
-  '@media (min-width:375px)': {
-    fontSize: '3.2rem',
-  },
-  '@media (min-width:390px)': {
-    fontSize: '3.4rem',
-  },
-  '@media (min-width:414px)': {
-    fontSize: '3.6rem',
-  },
-  '@media (min-width:428px)': {
-    fontSize: '3.8rem',
+  '@media only screen and (min-width:320px) and (orientation: landscape)': {
+    fontSize: '13.8vw',
   },
   [theme.breakpoints.only('xl')]: {
     fontSize: '14rem',
@@ -77,23 +65,11 @@ theme.typography.h1 = {
   },
 };
 theme.typography.h2 = {
-  '@media (min-width:320px)': {
-    fontSize: '0.64rem',
+  '@media only screen and (min-width:320px) and (orientation: portrait)': {
+    fontSize: '3.5vw',
   },
-  '@media (min-width:360px)': {
-    fontSize: '0.74rem',
-  },
-  '@media (min-width:375px)': {
-    fontSize: '0.77rem',
-  },
-  '@media (min-width:390px)': {
-    fontSize: '0.8rem',
-  },
-  '@media (min-width:414px)': {
-    fontSize: '0.84rem',
-  },
-  '@media (min-width:428px)': {
-    fontSize: '0.87rem',
+  '@media only screen and (min-width:320px) and (orientation: landscape)': {
+    fontSize: '3.5vw',
   },
   [theme.breakpoints.only('xl')]: {
     fontSize: '3.6rem',
