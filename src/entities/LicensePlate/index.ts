@@ -23,3 +23,4 @@ export type {
 export { LicensePlate } from './ui/LicensePlate';
 export { isLetterElectric } from './libs/isLetterElectric';
 export { convertCyrillicToLatin } from './libs/convertCyrillicToLatin';
+export { areLettersValid } from './libs/areLettersValid';

@@ -4,10 +4,10 @@ import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { TextField } from '@/shared/ui';
 import {
   LicensePlateLetters,
+  areLettersValid,
   convertCyrillicToLatin,
   updateAllLetters,
 } from '@/entities/LicensePlate';
-import { isValid } from '../libs/isValid';
 
 export const SelectLettersMobile: FC = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +27,7 @@ export const SelectLettersMobile: FC = () => {
     targetValue = targetValue.toUpperCase();
 
     if (
-      isValid(targetValue.split('') as LicensePlateLetters, true) &&
+      areLettersValid(targetValue.split('') as LicensePlateLetters, true) &&
       targetValue.length === 2
     ) {
       setValue(targetValue);
@@ -35,7 +35,7 @@ export const SelectLettersMobile: FC = () => {
       const letters = convertCyrillicToLatin(targetValue).split('');
 
       dispatch(updateAllLetters(letters as LicensePlateLetters));
-    } else if (isValid(targetValue.split('') as LicensePlateLetters)) {
+    } else if (areLettersValid(targetValue.split('') as LicensePlateLetters)) {
       setValue(targetValue);
     }
   };
@@ -44,7 +44,7 @@ export const SelectLettersMobile: FC = () => {
     <TextField
       variant='standard'
       inputProps={{ maxLength: 2 }}
-      error={!isValid(value.split('') as LicensePlateLetters, true)}
+      error={!areLettersValid(value.split('') as LicensePlateLetters, true)}
       value={value}
       onChange={handleChange}
       label={'Введіть серію'}
