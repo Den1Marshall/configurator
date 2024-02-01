@@ -1,9 +1,10 @@
 'use client';
 import { FC, ReactElement, useMemo, useState } from 'react';
-import { Grow, Tooltip } from '@/shared/ui';
+import { Tooltip } from '@/shared/ui';
 import { useAppSelector } from '@/app/state';
 import { EKV } from '../consts/EKV';
 import { DIIA } from '../consts/DIIA';
+import { SpringScale } from './SpringScale';
 
 export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
   children,
@@ -34,10 +35,10 @@ export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
   return (
     <Tooltip
       arrow
-      TransitionComponent={Grow}
       open={open}
       onClick={() => setOpen(!open)}
       title={description}
+      TransitionComponent={SpringScale}
     >
       {children}
     </Tooltip>
