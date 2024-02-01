@@ -1,5 +1,5 @@
 'use client';
-import { FC, ReactElement, useMemo, useState } from 'react';
+import { FC, ReactElement, useEffect, useMemo, useState } from 'react';
 import { Tooltip } from '@/shared/ui';
 import { useAppSelector } from '@/app/state';
 import { EKV } from '../consts/EKV';
@@ -26,11 +26,19 @@ export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
       case 'PD':
         return DIIA;
       default:
-        return '';
+        return 'Звичайний регіон';
     }
   }, [region]);
 
   const [open, setOpen] = useState(Boolean(description));
+
+  useEffect(() => {
+    if (open && description === 'Звичайний регіон') {
+      setTimeout(() => {
+        setOpen(false);
+      }, 1000);
+    }
+  }, [open, description]);
 
   return (
     <Tooltip
