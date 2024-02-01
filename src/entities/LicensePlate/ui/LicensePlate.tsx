@@ -13,7 +13,6 @@ export const LicensePlate: FC<{ children: ReactNode }> = ({ children }) => {
 
   const [spring, api] = useSpring(() => ({
     from: {
-      scale: 0.8,
       opacity: 0,
     },
   }));
@@ -22,7 +21,7 @@ export const LicensePlate: FC<{ children: ReactNode }> = ({ children }) => {
 
   useLayoutEffect(() => {
     api.start({
-      to: { scale: 1, opacity: 1 },
+      to: { opacity: 1 },
       config: {
         frequency: 0.5,
         precision: 0.0001,
