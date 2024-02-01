@@ -30,7 +30,7 @@ export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
     }
   }, [region]);
 
-  const [open, setOpen] = useState(Boolean(description));
+  const [open, setOpen] = useState(description !== 'Звичайний регіон');
 
   useEffect(() => {
     if (open && description === 'Звичайний регіон') {
