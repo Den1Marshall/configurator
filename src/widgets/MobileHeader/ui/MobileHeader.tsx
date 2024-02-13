@@ -54,7 +54,6 @@ export const MobileHeader: FC = () => {
     },
     {
       axis: 'y',
-      filterTaps: true,
       rubberband: 0.1,
       bounds(state) {
         return {
