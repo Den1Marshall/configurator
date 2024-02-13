@@ -45,17 +45,14 @@ export const theme = extendTheme(
 
 theme.typography.h1 = {
   lineHeight: '100%',
-  '@media only screen and (min-width:320px) and (orientation: portrait)': {
-    fontSize: '13.9vw',
-  },
-  '@media only screen and (min-width:320px) and (orientation: landscape)': {
+  '@media only screen': {
     fontSize: '13.8vw',
   },
   [theme.breakpoints.up('lg')]: {
     fontSize: '11rem',
   },
   [theme.breakpoints.only('md')]: {
-    fontSize: '8rem',
+    fontSize: '7.99rem',
   },
   [theme.breakpoints.only('sm')]: {
     fontSize: '5rem',
