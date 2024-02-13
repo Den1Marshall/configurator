@@ -7,6 +7,7 @@ import {
   LicensePlateElectricLetter,
   LicensePlateLetter,
   updateLetter,
+  useScrollSnapResize,
 } from '@/entities/LicensePlate';
 import { useInView } from 'react-intersection-observer';
 import { mergeRefs } from '@/shared/libs';
@@ -24,7 +25,7 @@ export const Letter: FC<{
 
   const letterRef = useRef<HTMLParagraphElement>(null);
   const { ref, inView } = useInView({
-    threshold: 0.53,
+    threshold: 0.9,
 
     onChange(inView, entry) {
       if (inView) {
@@ -48,6 +49,8 @@ export const Letter: FC<{
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [letterRef.current, currentLetter]);
+
+  useScrollSnapResize(letterRef, currentLetter);
 
   return (
     <Typography

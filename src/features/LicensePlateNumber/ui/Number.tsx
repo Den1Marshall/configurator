@@ -2,7 +2,11 @@
 import { FC, useEffect, useRef } from 'react';
 import { Typography } from '@/shared/ui';
 import { useAppDispatch, useAppSelector } from '@/app/state';
-import { licensePlateNumbersArr, updateNumber } from '@/entities/LicensePlate';
+import {
+  licensePlateNumbersArr,
+  updateNumber,
+  useScrollSnapResize,
+} from '@/entities/LicensePlate';
 import { LicensePlateNumber } from '@/entities/LicensePlate/model/types';
 import { NumberPos } from '../model/types';
 import { useInView } from 'react-intersection-observer';
@@ -20,7 +24,7 @@ export const Number: FC<{
 
   const numberRef = useRef<HTMLParagraphElement>(null);
   const { ref, inView } = useInView({
-    threshold: 0.53,
+    threshold: 0.9,
 
     onChange(inView, entry) {
       if (inView && entry.target.textContent) {
@@ -45,6 +49,8 @@ export const Number: FC<{
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numberRef.current, currentNumber]);
+
+  useScrollSnapResize(numberRef, currentNumber);
 
   return (
     <Typography

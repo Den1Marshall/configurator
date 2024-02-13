@@ -4,6 +4,7 @@ import {
   LicensePlateRegion,
   licensePlateRegionsArr,
   updateRegion,
+  useScrollSnapResize,
 } from '@/entities/LicensePlate';
 import { mergeRefs } from '@/shared/libs';
 import { Typography } from '@mui/material';
@@ -19,7 +20,7 @@ export const Region: FC<{ region: LicensePlateRegion }> = ({ region }) => {
 
   const regionRef = useRef<HTMLParagraphElement>(null);
   const { ref, inView } = useInView({
-    threshold: 0.53,
+    threshold: 0.9,
 
     onChange(inView, entry) {
       if (inView) {
@@ -45,6 +46,8 @@ export const Region: FC<{ region: LicensePlateRegion }> = ({ region }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionRef.current, currentCode]);
+
+  useScrollSnapResize(regionRef, currentCode);
 
   return (
     <Typography
