@@ -51,10 +51,7 @@ theme.typography.h1 = {
   '@media only screen and (min-width:320px) and (orientation: landscape)': {
     fontSize: '13.8vw',
   },
-  [theme.breakpoints.only('xl')]: {
-    fontSize: '14rem',
-  },
-  [theme.breakpoints.only('lg')]: {
+  [theme.breakpoints.up('lg')]: {
     fontSize: '11rem',
   },
   [theme.breakpoints.only('md')]: {
@@ -71,10 +68,7 @@ theme.typography.h2 = {
   '@media only screen and (min-width:320px) and (orientation: landscape)': {
     fontSize: '3.5vw',
   },
-  [theme.breakpoints.only('xl')]: {
-    fontSize: '3.6rem',
-  },
-  [theme.breakpoints.only('lg')]: {
+  [theme.breakpoints.up('lg')]: {
     fontSize: '2.8rem',
   },
   [theme.breakpoints.only('md')]: {

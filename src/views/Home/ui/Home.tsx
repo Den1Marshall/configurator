@@ -19,7 +19,7 @@ export default function Home() {
       <Container
         fixed
         component={'main'}
-        maxWidth='xl'
+        maxWidth={'lg'}
         sx={{
           width: '100%',
           height: '100%',
