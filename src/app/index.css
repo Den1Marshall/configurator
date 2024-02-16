@@ -5,11 +5,20 @@
   -webkit-user-select: none;
 }
 
-html {
-  scroll-behavior: smooth;
+:root {
+  --beyond-safe-area-height: max(calc(100% + env(safe-area-inset-top)), 100%);
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: var(--beyond-safe-area-height);
+  padding-top: env(safe-area-inset-top);
+  padding-right: max(16px, env(safe-area-inset-right));
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: max(16px, env(safe-area-inset-left));
+}
+
 body {
   width: 100%;
   height: 100%;
