@@ -55,16 +55,9 @@ export const Region: FC<{ region: LicensePlateRegion }> = ({ region }) => {
       key={region.code}
       variant='h1'
       component={'p'}
-      fontWeight={500}
-      textAlign={'center'}
       sx={{
         scrollSnapAlign: 'center',
-        mt: region.code === licensePlateRegionsArr[0].code ? '10%' : undefined,
-        mb:
-          region.code ===
-          licensePlateRegionsArr[licensePlateRegionsArr.length - 1].code
-            ? '10%'
-            : undefined,
+        my: '10%',
       }}
     >
       {region.code}

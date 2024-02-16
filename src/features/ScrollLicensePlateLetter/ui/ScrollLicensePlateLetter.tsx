@@ -24,11 +24,11 @@ export const ScrollLicensePlateLetter: FC<{ letterPos: LetterPos }> = ({
 
   return (
     <Stack
-      overflow={'scroll'}
       width={'100%'}
       height={'100%'}
+      textAlign={letterPos === 1 ? 'left' : 'right'}
       sx={{
-        textAlign: letterPos === 1 ? 'left' : 'right',
+        overflowX: 'hidden',
         scrollSnapType: 'y mandatory',
         msOverflowStyle: 'none',
         scrollbarWidth: 'none',

@@ -58,11 +58,9 @@ export const Letter: FC<{
       key={letter}
       variant='h1'
       component={'p'}
-      fontWeight={500}
       sx={{
-        mt: letter === letters[0] ? '10%' : undefined,
-        mb: letter === letters[letters.length - 1] ? '10%' : undefined,
         scrollSnapAlign: 'center',
+        my: '10%',
       }}
     >
       {letter}

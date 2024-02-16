@@ -17,8 +17,8 @@ export default function Home() {
     <>
       {isMobile ? <MobileHeader /> : <Header />}
       <Container
-        fixed
         component={'main'}
+        disableGutters
         maxWidth={'lg'}
         sx={{
           width: '100%',

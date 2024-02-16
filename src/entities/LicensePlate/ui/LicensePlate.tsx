@@ -1,10 +1,11 @@
 'use client';
-import { AnimatedPaper, Box } from '@/shared/ui';
+import { AnimatedPaper, Stack } from '@/shared/ui';
 import { FC, ReactNode, useEffect, useLayoutEffect, useState } from 'react';
 import { LicensePlateFlag } from './LicensePlateFlag';
 import { useAppSelector } from '@/app/state';
 import { LicensePlateLetter } from '..';
 import { useSpring } from '@react-spring/web';
+import { LICENSE_PLATE_ASPECT_RATIO } from '../consts';
 
 export const LicensePlate: FC<{ children: ReactNode }> = ({ children }) => {
   const letters = useAppSelector(
@@ -42,28 +43,31 @@ export const LicensePlate: FC<{ children: ReactNode }> = ({ children }) => {
       style={spring}
       square
       elevation={6}
-      sx={{ width: '100%', p: '1%', background: '#fff', aspectRatio: '6/1' }}
+      sx={{
+        width: '100%',
+        aspectRatio: LICENSE_PLATE_ASPECT_RATIO,
+        bgcolor: color,
+        p: 'min(0.5vw, 6px)',
+        border: 'min(0.5vw, 6px) solid #fff',
+        transition: 'background 0.2s ease-in-out',
+      }}
     >
-      <Box
+      <Stack
+        position={'relative'}
         width={'100%'}
+        height={'100%'}
+        color={color}
+        direction={'row'}
+        justifyContent={'flex-end'}
+        bgcolor={'#fff'}
         sx={{
-          p: '0.5%',
-          backgroundColor: color,
-          transition: 'background-color 0.2s ease-in-out',
+          aspectRatio: LICENSE_PLATE_ASPECT_RATIO,
+          transition: 'color 0.2s ease-in-out',
         }}
       >
-        <Box
-          width={'100%'}
-          color={color}
-          bgcolor={'#fff'}
-          display={'flex'}
-          flexDirection={'row'}
-          sx={{ aspectRatio: '6/1', transition: 'color 0.2s ease-in-out' }}
-        >
-          <LicensePlateFlag />
-          {children}
-        </Box>
-      </Box>
+        <LicensePlateFlag />
+        {children}
+      </Stack>
     </AnimatedPaper>
   );
 };

@@ -2,11 +2,7 @@
 import { FC, useEffect, useRef } from 'react';
 import { Typography } from '@/shared/ui';
 import { useAppDispatch, useAppSelector } from '@/app/state';
-import {
-  licensePlateNumbersArr,
-  updateNumber,
-  useScrollSnapResize,
-} from '@/entities/LicensePlate';
+import { updateNumber, useScrollSnapResize } from '@/entities/LicensePlate';
 import { LicensePlateNumber } from '@/entities/LicensePlate/model/types';
 import { NumberPos } from '../model/types';
 import { useInView } from 'react-intersection-observer';
@@ -58,14 +54,9 @@ export const Number: FC<{
       key={number}
       variant='h1'
       component={'p'}
-      fontWeight={500}
       sx={{
-        mt: number === licensePlateNumbersArr[0] ? '10%' : undefined,
-        mb:
-          number === licensePlateNumbersArr[licensePlateNumbersArr.length - 1]
-            ? '10%'
-            : undefined,
         scrollSnapAlign: 'center',
+        my: '10%',
       }}
     >
       {number}

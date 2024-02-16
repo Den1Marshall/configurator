@@ -12,6 +12,7 @@ export const LicensePlateNumber: FC<{ numberPos: NumberPos }> = ({
       overflow={'scroll'}
       width={'100%'}
       height={'100%'}
+      textAlign={'center'}
       sx={{
         scrollSnapType: 'y mandatory',
         msOverflowStyle: 'none',

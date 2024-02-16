@@ -9,18 +9,18 @@ import { LicensePlateRegionDescription } from '@/entities/LicensePlateRegionDesc
 export const LicensePlateWidget: FC = () => {
   return (
     <LicensePlate>
-      <Stack direction={'row'} maxWidth={'100%'} maxHeight={'100%'}>
+      <Stack direction={'row'} width={'100%'} height={'100%'}>
         <LicensePlateRegionDescription>
           <LicensePlateRegion />
         </LicensePlateRegionDescription>
       </Stack>
-      <Stack direction={'row'} maxWidth={'100%'} maxHeight={'100%'}>
+      <Stack direction={'row'} width={'100%'} height={'100%'}>
         <LicensePlateNumber numberPos={0} />
         <LicensePlateNumber numberPos={1} />
         <LicensePlateNumber numberPos={2} />
         <LicensePlateNumber numberPos={3} />
       </Stack>
-      <Stack direction={'row'} maxWidth={'100%'} maxHeight={'100%'}>
+      <Stack direction={'row'} width={'100%'} height={'100%'}>
         <ScrollLicensePlateLetter letterPos={0} />
         <ScrollLicensePlateLetter letterPos={1} />
       </Stack>
