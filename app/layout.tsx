@@ -25,6 +25,10 @@ export const metadata: Metadata = {
     title: 'CHANGETHIS',
     description: 'CHANGETHIS',
   },
+
+  appleWebApp: {
+    statusBarStyle: 'black-translucent',
+  },
 };
 
 export const viewport: Viewport = {
