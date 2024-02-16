@@ -102,7 +102,11 @@ export const ApproximateCostModalMobile: FC<{
       hideBackdrop
       PaperProps={{ elevation: 0 }}
     >
-      <DialogTitle textAlign={'center'} component={'h2'}>
+      <DialogTitle
+        mt={'env(safe-area-inset-top)'}
+        textAlign={'center'}
+        component={'h2'}
+      >
         <IconButton
           size='small'
           sx={{ position: 'absolute', left: 24 }}
