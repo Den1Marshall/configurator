@@ -13,15 +13,11 @@ html {
   padding-right: max(16px, env(safe-area-inset-right));
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: max(16px, env(safe-area-inset-left));
+  overscroll-behavior: none;
 }
 
 body {
   width: 100%;
   height: 100%;
-}
-
-body,
-canvas {
-  overflow: hidden;
-  touch-action: none;
+  overscroll-behavior: none;
 }
