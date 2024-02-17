@@ -16,7 +16,7 @@ export const Letter: FC<{
   letterPos: LetterPos;
   letter: LicensePlateLetter | LicensePlateElectricLetter;
   letters: (LicensePlateLetter | LicensePlateElectricLetter)[];
-}> = ({ letterPos, letter, letters }) => {
+}> = ({ letterPos, letter }) => {
   const currentLetter = useAppSelector(
     (state) => state.persistedLicensePlateReducer.letters[letterPos]
   );
