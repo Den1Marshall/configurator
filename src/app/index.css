@@ -5,8 +5,13 @@
   -webkit-user-select: none;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 html {
-  scroll-behavior: smooth;
   width: 100%;
   height: max(calc(100% + env(safe-area-inset-top)), 100%);
   overscroll-behavior: none;
