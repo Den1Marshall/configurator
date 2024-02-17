@@ -1,7 +1,7 @@
 'use client';
 import { useAppDispatch, useAppSelector } from '@/app/state';
 import { FC } from 'react';
-import { Autocomplete, TextField } from '@/shared/ui';
+import { Autocomplete, TextField, createFilterOptions } from '@mui/material';
 import {
   LicensePlateRegion,
   convertCyrillicToLatin,
@@ -9,7 +9,6 @@ import {
   updateRegion,
 } from '@/entities/LicensePlate';
 import { SelectRegionPaper } from './SelectRegionPaper';
-import { createFilterOptions } from '@mui/material';
 
 export const SelectRegion: FC = () => {
   const dispatch = useAppDispatch();

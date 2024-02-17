@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { AppBar, Stack, Toolbar } from '@/shared/ui';
+import { AppBar, Stack, Toolbar } from '@mui/material';
 import { SelectRegion } from '@/features/SelectRegion';
 import { SelectNumbers } from '@/features/SelectNumbers';
 import { SelectLetters } from '@/features/SelectLetters';

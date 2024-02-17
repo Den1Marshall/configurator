@@ -1,6 +1,6 @@
 'use client';
 import { FC, ReactElement, useEffect, useMemo, useState } from 'react';
-import { Tooltip } from '@/shared/ui';
+import { Tooltip } from '@mui/material';
 import { useAppSelector } from '@/app/state';
 import { EKV } from '../consts/EKV';
 import { DIIA } from '../consts/DIIA';

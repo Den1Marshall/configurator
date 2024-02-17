@@ -1,7 +1,7 @@
 'use client';
 import { useAppDispatch, useAppSelector } from '@/app/state';
 import { FC } from 'react';
-import { FormControl, InputLabel, NativeSelect } from '@/shared/ui';
+import { FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { licensePlateRegionsArr, updateRegion } from '@/entities/LicensePlate';
 import { generateGroups } from '../libs/generateGroups';
 

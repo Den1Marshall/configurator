@@ -1,5 +1,5 @@
 'use client';
-import { AnimatedPaper } from '@/shared/ui';
+import { AnimatedPaper } from '@/shared/ui/AnimatedPaper';
 import { FC, useLayoutEffect } from 'react';
 import { useSpring } from '@react-spring/web';
 import { PaperProps } from '@mui/material';

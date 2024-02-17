@@ -1,5 +1,5 @@
 import { LicensePlateWidget } from '@/widgets/LicensePlate';
-import { Container } from '@/shared/ui';
+import { Container } from '@mui/material';
 import { Header } from '@/widgets/Header';
 import { MobileHeader } from '@/widgets/MobileHeader';
 import { headers } from 'next/headers';

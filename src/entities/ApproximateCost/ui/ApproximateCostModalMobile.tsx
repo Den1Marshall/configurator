@@ -1,21 +1,19 @@
 'use client';
 import { FC, useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import {
-  Dialog,
   DialogContent,
   DialogContentText,
   DialogTitle,
+  IconButton,
   List,
   ListItem,
   ListItemText,
-  IconButton,
-} from '@/shared/ui';
-import { useTheme } from '@mui/material';
-import { useSpring, animated } from '@react-spring/web';
+  useTheme,
+} from '@mui/material';
+import { AnimatedDialog } from '@/shared/ui/AnimatedDialog';
+import { useSpring } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
-const AnimatedDialog = animated(Dialog);
 
 export const ApproximateCostModalMobile: FC<{
   open: boolean;

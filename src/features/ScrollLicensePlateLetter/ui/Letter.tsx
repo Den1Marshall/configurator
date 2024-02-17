@@ -1,6 +1,6 @@
 'use client';
 import { FC, useEffect, useRef } from 'react';
-import { Typography } from '@/shared/ui';
+import { Typography } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '@/app/state';
 import type { LetterPos } from '../model/types';
 import {

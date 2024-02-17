@@ -8,8 +8,8 @@ import {
   List,
   ListItem,
   ListItemText,
-} from '@/shared/ui';
-import { useTheme } from '@mui/material';
+  useTheme,
+} from '@mui/material';
 
 export const ApproximateCostModal: FC<{
   open: boolean;

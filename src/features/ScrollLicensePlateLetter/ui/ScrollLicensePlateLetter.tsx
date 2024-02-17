@@ -3,7 +3,7 @@ import {
   type LicensePlateElectricLetter,
   type LicensePlateLetter,
 } from '@/entities/LicensePlate';
-import { Stack } from '@/shared/ui';
+import { Stack } from '@mui/material';
 import { FC } from 'react';
 import { Letter } from './Letter';
 import { LetterPos } from '../model/types';

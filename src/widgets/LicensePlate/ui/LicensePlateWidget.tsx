@@ -3,7 +3,7 @@ import { LicensePlateNumber } from '@/features/LicensePlateNumber';
 import { LicensePlateRegion } from '@/features/LicensePlateRegion';
 import { ScrollLicensePlateLetter } from '@/features/ScrollLicensePlateLetter';
 import { FC } from 'react';
-import { Stack } from '@/shared/ui';
+import { Stack } from '@mui/material';
 import { LicensePlateRegionDescription } from '@/entities/LicensePlateRegionDescription';
 
 export const LicensePlateWidget: FC = () => {

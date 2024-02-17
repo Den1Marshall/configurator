@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { licensePlateNumbersArr } from '@/entities/LicensePlate';
 import { Number } from './Number';
 import { NumberPos } from '../model/types';
-import { Stack } from '@/shared/ui';
+import { Stack } from '@mui/material';
 
 export const LicensePlateNumber: FC<{ numberPos: NumberPos }> = ({
   numberPos,

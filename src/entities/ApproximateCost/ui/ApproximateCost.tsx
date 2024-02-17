@@ -1,11 +1,10 @@
 'use client';
 import { useAppSelector } from '@/app/state';
-import { SxProps } from '@mui/material';
+import { SxProps, Typography } from '@mui/material';
 import { FC, useEffect, useMemo, useState } from 'react';
 import HelpIcon from '@mui/icons-material/Help';
 import { ApproximateCostModal } from './ApproximateCostModal';
 import { ApproximateCostModalMobile } from './ApproximateCostModalMobile';
-import { Typography } from '@/shared/ui';
 
 export const ApproximateCost: FC<{ sx?: SxProps; mobile?: boolean }> = ({
   sx,

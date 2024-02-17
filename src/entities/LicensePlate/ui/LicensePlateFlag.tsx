@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Box, Stack, Typography } from '@/shared/ui';
+import { Box, Stack, Typography } from '@mui/material';
 
 export const LicensePlateFlag: FC = () => {
   return (

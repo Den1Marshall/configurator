@@ -1,5 +1,5 @@
 import { licensePlateRegionsArr } from '@/entities/LicensePlate';
-import { Stack } from '@/shared/ui';
+import { Stack } from '@mui/material';
 import { FC } from 'react';
 import { Region } from './Region';
 

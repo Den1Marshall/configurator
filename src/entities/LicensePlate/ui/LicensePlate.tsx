@@ -1,9 +1,10 @@
 'use client';
-import { AnimatedPaper, Stack } from '@/shared/ui';
+import { Stack } from '@mui/material';
 import { FC, ReactNode, useEffect, useLayoutEffect, useState } from 'react';
 import { LicensePlateFlag } from './LicensePlateFlag';
 import { useAppSelector } from '@/app/state';
 import { LicensePlateLetter } from '..';
+import { AnimatedPaper } from '@/shared/ui/AnimatedPaper';
 import { useSpring } from '@react-spring/web';
 import { LICENSE_PLATE_ASPECT_RATIO } from '../consts';
 
