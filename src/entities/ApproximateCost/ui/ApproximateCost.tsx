@@ -2,12 +2,10 @@
 import { useAppSelector } from '@/app/state';
 import { SxProps } from '@mui/material';
 import { FC, useEffect, useMemo, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 import HelpIcon from '@mui/icons-material/Help';
 import { ApproximateCostModal } from './ApproximateCostModal';
 import { ApproximateCostModalMobile } from './ApproximateCostModalMobile';
-import { AnimatedTypography } from '@/shared/ui';
-import { useSpring } from '@react-spring/web';
+import { Typography } from '@/shared/ui';
 
 export const ApproximateCost: FC<{ sx?: SxProps; mobile?: boolean }> = ({
   sx,
@@ -20,30 +18,6 @@ export const ApproximateCost: FC<{ sx?: SxProps; mobile?: boolean }> = ({
   const [hydrated, setHydrated] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const { ref } = useInView({
-    threshold: 1,
-
-    onChange(inView) {
-      if (inView) {
-        api.start({
-          to: {
-            opacity: 1,
-          },
-
-          config: {
-            precision: 0.0001,
-            frequency: 0.5,
-          },
-        });
-      } else {
-        api.start({
-          to: { opacity: 0 },
-          config: { precision: 0.0001, frequency: 0.5 },
-        });
-      }
-    },
-  });
 
   const cost = useMemo(() => {
     switch (true) {
@@ -79,21 +53,13 @@ export const ApproximateCost: FC<{ sx?: SxProps; mobile?: boolean }> = ({
     }
   }, [numbers]);
 
-  const [{ opacity }, api] = useSpring(() => ({
-    from: {
-      opacity: 0,
-    },
-  }));
-
   useEffect(() => {
     setHydrated(true);
   }, []);
 
   return (
     <>
-      <AnimatedTypography
-        ref={ref}
-        style={{ opacity }}
+      <Typography
         position={'absolute'}
         left={'50%'}
         top={'80%'}
@@ -114,7 +80,7 @@ export const ApproximateCost: FC<{ sx?: SxProps; mobile?: boolean }> = ({
             ml: 0.25,
           }}
         />
-      </AnimatedTypography>
+      </Typography>
       {mobile ? (
         <ApproximateCostModalMobile
           open={isModalOpen}
