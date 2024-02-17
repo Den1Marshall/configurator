@@ -3,6 +3,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { MUIThemeProvider } from '@/app/theme';
 import { StateProvider } from '@/app/state';
 import '@/app/index.css';
+import { RSReducedMotion } from '@/shared/ui/RSReducedMotion';
 
 export const metadata: Metadata = {
   title: 'CHANGETHIS',
@@ -52,6 +53,7 @@ export default function RootLayout({
             <MUIThemeProvider>{children}</MUIThemeProvider>
           </AppRouterCacheProvider>
         </StateProvider>
+        <RSReducedMotion />
       </body>
     </html>
   );
