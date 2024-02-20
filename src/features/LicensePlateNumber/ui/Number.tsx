@@ -54,10 +54,6 @@ export const Number: FC<{
       key={number}
       variant='h1'
       component={'p'}
-      sx={{
-        scrollSnapAlign: 'center',
-        my: '10%',
-      }}
     >
       {number}
     </Typography>

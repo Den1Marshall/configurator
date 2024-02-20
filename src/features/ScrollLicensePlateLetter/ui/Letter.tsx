@@ -58,10 +58,6 @@ export const Letter: FC<{
       key={letter}
       variant='h1'
       component={'p'}
-      sx={{
-        scrollSnapAlign: 'center',
-        my: '10%',
-      }}
     >
       {letter}
     </Typography>

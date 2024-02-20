@@ -55,10 +55,6 @@ export const Region: FC<{ region: LicensePlateRegion }> = ({ region }) => {
       key={region.code}
       variant='h1'
       component={'p'}
-      sx={{
-        scrollSnapAlign: 'center',
-        my: '10%',
-      }}
     >
       {region.code}
     </Typography>
