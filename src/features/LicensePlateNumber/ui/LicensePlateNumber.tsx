@@ -15,6 +15,7 @@ export const LicensePlateNumber: FC<{ numberPos: NumberPos }> = ({
       textAlign={'center'}
       sx={{
         scrollSnapType: 'y mandatory',
+        overscrollBehavior: 'contain',
         msOverflowStyle: 'none',
         scrollbarWidth: 'none',
         '&::-webkit-scrollbar': {

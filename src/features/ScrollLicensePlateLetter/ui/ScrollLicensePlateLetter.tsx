@@ -30,6 +30,7 @@ export const ScrollLicensePlateLetter: FC<{ letterPos: LetterPos }> = ({
       sx={{
         overflowX: 'hidden',
         scrollSnapType: 'y mandatory',
+        overscrollBehavior: 'contain',
         msOverflowStyle: 'none',
         scrollbarWidth: 'none',
         '&::-webkit-scrollbar': {

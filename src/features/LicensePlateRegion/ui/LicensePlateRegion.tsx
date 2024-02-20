@@ -12,6 +12,7 @@ export const LicensePlateRegion: FC = () => {
       textAlign={'center'}
       sx={{
         scrollSnapType: 'y mandatory',
+        overscrollBehavior: 'contain',
         msOverflowStyle: 'none',
         scrollbarWidth: 'none',
         '&::-webkit-scrollbar': {
