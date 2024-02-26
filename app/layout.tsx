@@ -4,6 +4,7 @@ import { MUIThemeProvider } from '@/app/theme';
 import { StateProvider } from '@/app/state';
 import '@/app/index.css';
 import { RSReducedMotion } from '@/shared/ui/RSReducedMotion';
+import { FMReducedMotion } from '@/shared/ui/FMReducedMotion';
 
 export const metadata: Metadata = {
   title: 'CHANGETHIS',
@@ -50,7 +51,9 @@ export default function RootLayout({
       <body>
         <StateProvider>
           <AppRouterCacheProvider>
-            <MUIThemeProvider>{children}</MUIThemeProvider>
+            <MUIThemeProvider>
+              <FMReducedMotion>{children}</FMReducedMotion>
+            </MUIThemeProvider>
           </AppRouterCacheProvider>
         </StateProvider>
         <RSReducedMotion />
