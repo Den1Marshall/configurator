@@ -41,7 +41,7 @@ export const SpringScale = forwardRef<HTMLDivElement, SpringScale>(
       },
 
       config: {
-        frequency: 0.3,
+        frequency: 0.2,
         damping: 0.8,
         precision: 0.0001,
       },
