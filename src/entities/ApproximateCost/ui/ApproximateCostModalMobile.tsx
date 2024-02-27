@@ -36,7 +36,7 @@ export const ApproximateCostModalMobile: FC<{
     api.start({
       to: { x: 0 },
       config: {
-        frequency: 0.33,
+        frequency: 0.3,
         precision: 0.0001,
       },
     });
@@ -51,7 +51,7 @@ export const ApproximateCostModalMobile: FC<{
         }
       },
       config: {
-        frequency: 0.33,
+        frequency: 0.3,
         precision: 0.0001,
       },
     });
