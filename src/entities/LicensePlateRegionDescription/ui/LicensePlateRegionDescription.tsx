@@ -43,6 +43,7 @@ export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
   return (
     <Tooltip
       arrow
+      placement='top'
       open={open}
       onClick={() => setOpen(!open)}
       title={description}
