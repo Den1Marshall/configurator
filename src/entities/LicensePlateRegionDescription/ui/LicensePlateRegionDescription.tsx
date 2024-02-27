@@ -48,6 +48,7 @@ export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
       onClick={() => setOpen(!open)}
       title={description}
       TransitionComponent={SpringScale}
+      PopperProps={{ sx: { zIndex: 0 } }}
     >
       {children}
     </Tooltip>
