@@ -42,6 +42,7 @@ export const SelectLettersMobile: FC = () => {
 
   return (
     <TextField
+      fullWidth
       variant='standard'
       inputProps={{ maxLength: 2 }}
       error={!areLettersValid(value.split('') as LicensePlateLetters, true)}

@@ -1,6 +1,5 @@
 'use client';
-import { FC, useRef } from 'react';
-import { AnimatedPaper, Stack } from '@/shared/ui';
+import { FC } from 'react';
 import { SelectNumbersMobile } from '@/features/SelectNumbers';
 import { SelectLettersMobile } from '@/features/SelectLetters';
 import { Puller } from './Puller';
@@ -9,37 +8,45 @@ import { useDrag } from '@use-gesture/react';
 import { detentToPx } from '../libs/detentToPx';
 import { findClosestDetent } from '../libs/findClosestDetent';
 import { SelectRegionMobile } from '@/features/SelectRegion';
-import { useTheme } from '@mui/material';
+import { Stack, useTheme } from '@mui/material';
 import { ApproximateCost } from '@/entities/ApproximateCost';
+import { AnimatedPaper } from '@/shared/ui/AnimatedPaper';
 
 export const MobileHeader: FC = () => {
-  const detents = [85, 58.5, 10];
   const theme = useTheme();
 
-  let position = detentToPx(detents[0]);
-  const ref = useRef<HTMLDivElement>(null);
+  const detents = [60, 0].map((det) => detentToPx(det));
+  let position = detents[0];
 
   const [{ y }, api] = useSpring(
     {
-      y: position,
+      y: typeof window === 'undefined' ? '60dvh' : position,
     },
     []
   );
 
   const bind = useDrag(
-    ({ movement: [, y], down, velocity: [, vy] }) => {
+    ({ movement: [, my], down, velocity: [, vy], swipe: [, sy] }) => {
       if (down) {
         api.start({
-          to: { y: position + y },
+          to: { y: position + my },
+
           immediate: true,
+
+          config: {
+            frequency: 0.3,
+            precision: 0.0001,
+            velocity: [0, vy],
+          },
         });
       } else {
-        y = y * (vy || 1);
-
-        position = findClosestDetent(
-          detents.map((det) => detentToPx(det)),
-          position + y
-        );
+        if (sy === -1) {
+          position = detents[1];
+        } else if (sy === 1) {
+          position = detents[0];
+        } else {
+          position = findClosestDetent(detents, position + my);
+        }
 
         api.start({
           to: {
@@ -48,19 +55,18 @@ export const MobileHeader: FC = () => {
           config: {
             frequency: 0.3,
             precision: 0.0001,
+            velocity: [0, vy],
           },
         });
       }
     },
     {
       axis: 'y',
-      rubberband: 0.1,
+      rubberband: 0.12,
+      filterTaps: true,
       bounds(state) {
         return {
-          top:
-            (state?.offset[1] || -Infinity) +
-            detentToPx(4.3) -
-            (ref.current?.getBoundingClientRect().top || -Infinity),
+          top: (state?.offset[1] || -0) + -y.get(),
         };
       },
     }
@@ -69,61 +75,43 @@ export const MobileHeader: FC = () => {
   return (
     <header>
       <AnimatedPaper
-        ref={ref}
         elevation={3}
         style={{
           y,
-          transform:
-            typeof window === 'undefined'
-              ? `translateY(${detents[0]}%)`
-              : undefined,
         }}
         {...bind()}
         sx={{
           zIndex: theme.zIndex.tooltip + 1,
           position: 'fixed',
+          top: 'env(safe-area-inset-top)',
           left: 0,
-          bottom: 0,
           width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          px: 2,
-          pt: 6,
-          gap: 6,
+          height: '115%',
+          pt: 0.5,
           touchAction: 'none',
-          mb: 'env(safe-area-inset-bottom)',
+          borderRadius: 5.5,
+          '@media (orientation: landscape)': {
+            display: 'none',
+          },
         }}
       >
-        <Puller
-          onClick={() => {
-            const [bottom, middle] = [
-              detentToPx(detents[0]),
-              detentToPx(detents[1]),
-            ];
-            if (position === middle) {
-              position = bottom;
-              api.start({ to: { y: position } });
-            } else {
-              position = middle;
-              api.start({ to: { y: middle } });
-            }
-          }}
-        />
-        <Stack
-          direction={'row'}
-          alignItems={'center'}
-          width={'100%'}
-          spacing={1}
-        >
+        <Stack px={2} spacing={4} alignItems={'center'}>
+          <Puller />
           <SelectRegionMobile />
-          <SelectNumbersMobile />
-          <SelectLettersMobile />
+          <Stack
+            direction={'row'}
+            alignItems={'center'}
+            width={'100%'}
+            spacing={1}
+          >
+            <SelectNumbersMobile />
+            <SelectLettersMobile />
+          </Stack>
+          <ApproximateCost
+            sx={{ position: 'static', transform: 'none' }}
+            mobile
+          />
         </Stack>
-        <ApproximateCost
-          mobile
-          sx={{ position: 'relative', top: 0, left: 0, transform: 'none' }}
-        />
       </AnimatedPaper>
     </header>
   );

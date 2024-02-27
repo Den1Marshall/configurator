@@ -39,6 +39,7 @@ export const SelectNumbersMobile: FC = () => {
 
   return (
     <TextField
+      fullWidth
       variant='standard'
       inputProps={{ maxLength: 4, inputMode: 'numeric' }}
       error={!valid}

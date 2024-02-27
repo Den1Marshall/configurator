@@ -16,6 +16,7 @@ export const SelectRegionMobile: FC = () => {
     <FormControl fullWidth>
       <InputLabel variant='standard'>Оберіть регіон</InputLabel>
       <NativeSelect
+        sx={{ flexBasis: '100%' }}
         variant='outlined'
         value={region.code}
         onChange={(e) => {
