@@ -50,7 +50,9 @@ theme.typography.h1 = {
   fontSize: 'min(13.5vw, 172.48px)',
   fontWeight: 500,
   scrollSnapAlign: 'start',
+  cursor: 'pointer',
 };
+
 theme.typography.h2 = {
   fontSize: 'min(3.5vw, 43.12px)',
 };
