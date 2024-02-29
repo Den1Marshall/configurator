@@ -5,6 +5,7 @@ import { StateProvider } from '@/app/state';
 import '@/app/index.css';
 import { RSReducedMotion } from '@/shared/ui/RSReducedMotion';
 import { FMReducedMotion } from '@/shared/ui/FMReducedMotion';
+import { startupImage } from './startupImage';
 
 export const metadata: Metadata = {
   title: 'CHANGETHIS',
@@ -29,7 +30,9 @@ export const metadata: Metadata = {
   },
 
   appleWebApp: {
+    capable: true,
     statusBarStyle: 'black-translucent',
+    startupImage,
   },
 };
 
