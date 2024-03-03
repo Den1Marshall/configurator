@@ -5,7 +5,7 @@ import { FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { licensePlateRegionsArr, updateRegion } from '@/entities/LicensePlate';
 import { generateGroups } from '../libs/generateGroups';
 
-export const SelectRegionMobile: FC = () => {
+export const NativeSelectRegion: FC = () => {
   const dispatch = useAppDispatch();
 
   const region = useAppSelector(

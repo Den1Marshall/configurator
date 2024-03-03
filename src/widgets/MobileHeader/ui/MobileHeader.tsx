@@ -7,7 +7,7 @@ import { useSpring } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 import { detentToPx } from '../libs/detentToPx';
 import { findClosestDetent } from '../libs/findClosestDetent';
-import { SelectRegionMobile } from '@/features/SelectRegion';
+import { NativeSelectRegion } from '@/features/NativeSelectRegion';
 import { Stack, useTheme } from '@mui/material';
 import { ApproximateCost } from '@/entities/ApproximateCost';
 import { AnimatedPaper } from '@/shared/ui/AnimatedPaper';
@@ -97,7 +97,7 @@ export const MobileHeader: FC = () => {
       >
         <Stack px={2} spacing={4} alignItems={'center'}>
           <Puller />
-          <SelectRegionMobile />
+          <NativeSelectRegion />
           <Stack
             direction={'row'}
             alignItems={'center'}
