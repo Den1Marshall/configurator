@@ -1,7 +1,7 @@
 'use client';
 import { FC } from 'react';
-import { SelectNumbersMobile } from '@/features/SelectNumbers';
-import { SelectLettersMobile } from '@/features/SelectLetters';
+import { SelectNumbers } from '@/features/SelectNumbers';
+import { SelectLetters } from '@/features/SelectLetters';
 import { Puller } from './Puller';
 import { useSpring } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
@@ -104,8 +104,8 @@ export const MobileHeader: FC = () => {
             width={'100%'}
             spacing={1}
           >
-            <SelectNumbersMobile />
-            <SelectLettersMobile />
+            <SelectNumbers touch />
+            <SelectLetters touch />
           </Stack>
           <ApproximateCost
             sx={{ position: 'static', transform: 'none' }}

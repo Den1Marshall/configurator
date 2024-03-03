@@ -4,7 +4,7 @@ import { LicensePlateNumbers, updateAllNumbers } from '@/entities/LicensePlate';
 import { TextField } from '@mui/material';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 
-export const SelectNumbers: FC = () => {
+export const SelectNumbers: FC<{ touch?: boolean }> = ({ touch }) => {
   const dispatch = useAppDispatch();
   const numbers = useAppSelector(
     (state) => state.persistedLicensePlateReducer.numbers
@@ -39,6 +39,8 @@ export const SelectNumbers: FC = () => {
 
   return (
     <TextField
+      fullWidth={touch}
+      variant={touch ? 'standard' : 'outlined'}
       inputProps={{ maxLength: 4, inputMode: 'numeric' }}
       error={!valid}
       value={value}

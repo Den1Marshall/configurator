@@ -9,7 +9,7 @@ import {
   updateAllLetters,
 } from '@/entities/LicensePlate';
 
-export const SelectLetters: FC = () => {
+export const SelectLetters: FC<{ touch?: boolean }> = ({ touch }) => {
   const dispatch = useAppDispatch();
   const letters = useAppSelector(
     (state) => state.persistedLicensePlateReducer.letters
@@ -42,6 +42,8 @@ export const SelectLetters: FC = () => {
 
   return (
     <TextField
+      fullWidth={touch}
+      variant={touch ? 'standard' : 'outlined'}
       inputProps={{ maxLength: 2 }}
       error={!areLettersValid(value.split('') as LicensePlateLetters, true)}
       value={value}
