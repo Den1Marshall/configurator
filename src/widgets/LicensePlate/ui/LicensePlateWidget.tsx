@@ -1,6 +1,6 @@
 import { LicensePlate } from '@/entities/LicensePlate';
-import { LicensePlateNumber } from '@/features/LicensePlateNumber';
-import { LicensePlateRegion } from '@/features/LicensePlateRegion';
+import { ScrollLicensePlateNumber } from '@/features/ScrollLicensePlateNumber';
+import { ScrollLicensePlateRegion } from '@/features/ScrollLicensePlateRegion';
 import { ScrollLicensePlateLetter } from '@/features/ScrollLicensePlateLetter';
 import { FC } from 'react';
 import { Stack } from '@mui/material';
@@ -11,14 +11,14 @@ export const LicensePlateWidget: FC = () => {
     <LicensePlate>
       <Stack direction={'row'} width={'100%'} height={'100%'}>
         <LicensePlateRegionDescription>
-          <LicensePlateRegion />
+          <ScrollLicensePlateRegion />
         </LicensePlateRegionDescription>
       </Stack>
       <Stack direction={'row'} width={'100%'} height={'100%'}>
-        <LicensePlateNumber numberPos={0} />
-        <LicensePlateNumber numberPos={1} />
-        <LicensePlateNumber numberPos={2} />
-        <LicensePlateNumber numberPos={3} />
+        <ScrollLicensePlateNumber numberPos={0} />
+        <ScrollLicensePlateNumber numberPos={1} />
+        <ScrollLicensePlateNumber numberPos={2} />
+        <ScrollLicensePlateNumber numberPos={3} />
       </Stack>
       <Stack direction={'row'} width={'100%'} height={'100%'}>
         <ScrollLicensePlateLetter letterPos={0} />

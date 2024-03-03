@@ -1,9 +1,12 @@
-import { licensePlateRegionsArr } from '@/entities/LicensePlate';
-import { Stack } from '@mui/material';
 import { FC } from 'react';
-import { Region } from './Region';
+import { licensePlateNumbersArr } from '@/entities/LicensePlate';
+import { Number } from './Number';
+import { NumberPos } from '../model/types';
+import { Stack } from '@mui/material';
 
-export const LicensePlateRegion: FC = () => {
+export const ScrollLicensePlateNumber: FC<{ numberPos: NumberPos }> = ({
+  numberPos,
+}) => {
   return (
     <Stack
       overflow={'scroll'}
@@ -20,8 +23,8 @@ export const LicensePlateRegion: FC = () => {
         },
       }}
     >
-      {licensePlateRegionsArr.map((region) => (
-        <Region key={region.code} region={region} />
+      {licensePlateNumbersArr.map((number) => (
+        <Number key={number} numberPos={numberPos} number={number} />
       ))}
     </Stack>
   );
