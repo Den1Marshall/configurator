@@ -5,6 +5,7 @@ import { ukUA } from '@mui/material/locale';
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ['100', '300', '400', '500', '700', '900'],
+  fallback: ['system-ui', 'arial'],
 });
 
 export const theme = extendTheme(
