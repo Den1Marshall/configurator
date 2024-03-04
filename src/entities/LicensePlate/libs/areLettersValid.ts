@@ -1,12 +1,12 @@
 import {
   LicensePlateLetter,
-  LicensePlateLetters,
   licensePlateAllLettersArr,
   isLetterElectric,
+  LicensePlateElectricLetter,
 } from '@/entities/LicensePlate';
 
 export const areLettersValid = (
-  letters: LicensePlateLetters,
+  letters: (LicensePlateLetter | LicensePlateElectricLetter)[],
   forDispatch = false
 ) => {
   const regExp = new RegExp(

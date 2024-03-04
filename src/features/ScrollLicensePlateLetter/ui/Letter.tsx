@@ -20,11 +20,14 @@ export const Letter: FC<{
   const currentLetter = useAppSelector(
     (state) => state.persistedLicensePlateReducer.letters[letterPos]
   );
+  const areLettersCorrect = useAppSelector(
+    (state) => state.persistedLicensePlateReducer.areLettersCorrect
+  );
 
   const dispatch = useAppDispatch();
 
   const letterRef = useRef<HTMLParagraphElement>(null);
-  const { ref, inView } = useInView({
+  const { ref, inView, entry } = useInView({
     threshold: 0.9,
 
     onChange(inView, entry) {
@@ -50,6 +53,23 @@ export const Letter: FC<{
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [letterRef.current, currentLetter]);
 
+  useEffect(() => {
+    if (entry?.target.textContent && inView && areLettersCorrect) {
+      dispatch(
+        updateLetter({
+          letterPos,
+          value: entry.target.textContent as LicensePlateLetter,
+        })
+      );
+    }
+  }, [
+    areLettersCorrect,
+    dispatch,
+    entry?.target.textContent,
+    inView,
+    letterPos,
+  ]);
+
   useScrollSnapResize(letterRef, currentLetter);
 
   return (
@@ -58,6 +78,7 @@ export const Letter: FC<{
       key={letter}
       variant='h1'
       component={'p'}
+      color={areLettersCorrect ? undefined : 'error'}
     >
       {letter}
     </Typography>

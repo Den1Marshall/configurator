@@ -9,6 +9,7 @@ import {
   LicensePlateNumbers,
   LicensePlateRegion,
 } from './types';
+import { areLettersValid } from '..';
 
 interface UpdateNumber {
   numberPos: 0 | 1 | 2 | 3;
@@ -21,6 +22,7 @@ interface UpdateLetter {
 
 interface InitialState extends LicensePlate {
   areNumbersCorrect: boolean;
+  areLettersCorrect: boolean;
 }
 
 const initialState: InitialState = {
@@ -28,6 +30,7 @@ const initialState: InitialState = {
   numbers: [0, 0, 0, 1],
   letters: ['Y', 'A'],
   areNumbersCorrect: true,
+  areLettersCorrect: true,
 };
 
 const licensePlateSlice = createSlice({
@@ -65,10 +68,32 @@ const licensePlateSlice = createSlice({
 
     updateLetter(state, action: PayloadAction<UpdateLetter>) {
       const { letterPos, value } = action.payload;
+
+      if (
+        !areLettersValid(
+          state.letters.map((letter, i) => {
+            if (i === letterPos) {
+              letter = value;
+            }
+
+            return letter;
+          }),
+          true
+        )
+      ) {
+        state.areLettersCorrect = false;
+        return;
+      }
+
+      state.areLettersCorrect = true;
       state.letters[letterPos] = value;
     },
 
     updateAllLetters(state, action: PayloadAction<LicensePlateLetters>) {
+      if (!areLettersValid(action.payload)) {
+        return;
+      }
+
       state.letters = action.payload;
     },
   },
