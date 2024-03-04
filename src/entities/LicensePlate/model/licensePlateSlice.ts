@@ -19,10 +19,15 @@ interface UpdateLetter {
   value: LicensePlateLetter;
 }
 
-const initialState: LicensePlate = {
+interface InitialState extends LicensePlate {
+  areNumbersCorrect: boolean;
+}
+
+const initialState: InitialState = {
   region: licensePlateRegionsArr.find((region) => region.code === 'DI')!,
   numbers: [0, 0, 0, 1],
   letters: ['Y', 'A'],
+  areNumbersCorrect: true,
 };
 
 const licensePlateSlice = createSlice({
@@ -35,11 +40,27 @@ const licensePlateSlice = createSlice({
 
     updateNumber(state, action: PayloadAction<UpdateNumber>) {
       const { numberPos, value } = action.payload;
+
+      if (
+        state.numbers
+          .filter((_num, i) => i !== numberPos)
+          .every((num) => num === 0) &&
+        value === 0
+      ) {
+        state.areNumbersCorrect = false;
+        return;
+      }
+
+      state.areNumbersCorrect = true;
       state.numbers[numberPos] = value;
     },
 
     updateAllNumbers(state, action: PayloadAction<LicensePlateNumbers>) {
-      state.numbers = action.payload;
+      if (action.payload.every((num) => num === 0)) {
+        return;
+      } else {
+        state.numbers = action.payload;
+      }
     },
 
     updateLetter(state, action: PayloadAction<UpdateLetter>) {

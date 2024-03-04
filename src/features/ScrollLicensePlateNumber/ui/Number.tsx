@@ -15,11 +15,14 @@ export const Number: FC<{
   const currentNumber = useAppSelector(
     (state) => state.persistedLicensePlateReducer.numbers[numberPos]
   );
+  const areNumbersCorrect = useAppSelector(
+    (state) => state.persistedLicensePlateReducer.areNumbersCorrect
+  );
 
   const dispatch = useAppDispatch();
 
   const numberRef = useRef<HTMLParagraphElement>(null);
-  const { ref, inView } = useInView({
+  const { ref, inView, entry } = useInView({
     threshold: 0.9,
 
     onChange(inView, entry) {
@@ -46,6 +49,23 @@ export const Number: FC<{
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numberRef.current, currentNumber]);
 
+  useEffect(() => {
+    if (entry?.target.textContent && inView && areNumbersCorrect) {
+      dispatch(
+        updateNumber({
+          numberPos,
+          value: +entry.target.textContent as LicensePlateNumber,
+        })
+      );
+    }
+  }, [
+    areNumbersCorrect,
+    dispatch,
+    entry?.target.textContent,
+    inView,
+    numberPos,
+  ]);
+
   useScrollSnapResize(numberRef, currentNumber);
 
   return (
@@ -54,6 +74,7 @@ export const Number: FC<{
       key={number}
       variant='h1'
       component={'p'}
+      color={areNumbersCorrect ? undefined : 'error'}
     >
       {number}
     </Typography>

@@ -13,7 +13,7 @@ export const SelectNumbers: FC<{ touch?: boolean }> = ({ touch }) => {
   const [value, setValue] = useState(numbers.join(''));
 
   const regExp = new RegExp(/^\d*$/);
-  const valid = regExp.test(value) && value.length === 4;
+  const valid = regExp.test(value) && value.length === 4 && value !== '0000';
 
   useEffect(() => {
     setValue(numbers.join(''));
@@ -24,7 +24,7 @@ export const SelectNumbers: FC<{ touch?: boolean }> = ({ touch }) => {
   }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const valid = regExp.test(targetValue);
 
-    if (valid && targetValue.length === 4) {
+    if (valid && targetValue.length === 4 && targetValue !== '0000') {
       setValue(targetValue);
 
       const numbers = targetValue
