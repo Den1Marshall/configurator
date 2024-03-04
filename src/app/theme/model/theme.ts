@@ -52,6 +52,7 @@ theme.typography.h1 = {
   fontWeight: 500,
   scrollSnapAlign: 'start',
   cursor: 'pointer',
+  transition: 'color 0.2s ease-in-out',
 };
 
 theme.typography.h2 = {

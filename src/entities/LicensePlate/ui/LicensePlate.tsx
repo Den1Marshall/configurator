@@ -63,7 +63,6 @@ export const LicensePlate: FC<{ children: ReactNode }> = ({ children }) => {
         bgcolor={'#fff'}
         sx={{
           aspectRatio: LICENSE_PLATE_ASPECT_RATIO,
-          transition: 'color 0.2s ease-in-out',
         }}
       >
         <LicensePlateFlag />
