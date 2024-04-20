@@ -7,6 +7,7 @@ import { RSReducedMotion } from '@/shared/ui/RSReducedMotion';
 import { FMReducedMotion } from '@/shared/ui/FMReducedMotion';
 import { startupImage } from './startupImage';
 import { title } from './title';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title,
@@ -56,7 +57,10 @@ export default function RootLayout({
         <StateProvider>
           <AppRouterCacheProvider>
             <MUIThemeProvider>
-              <FMReducedMotion>{children}</FMReducedMotion>
+              <FMReducedMotion>
+                {children}
+                <Analytics />
+              </FMReducedMotion>
             </MUIThemeProvider>
           </AppRouterCacheProvider>
         </StateProvider>
