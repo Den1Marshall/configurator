@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' data-color-scheme='light' suppressHydrationWarning>
+    <html lang='uk' data-color-scheme='light' suppressHydrationWarning>
       <body>
         <StateProvider>
           <AppRouterCacheProvider>
