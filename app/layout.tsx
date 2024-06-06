@@ -12,8 +12,8 @@ import { Analytics } from '@vercel/analytics/react';
 export const metadata: Metadata = {
   title,
   description: 'CHANGETHIS',
+  metadataBase: new URL('https://configurator-blond.vercel.app/'),
   robots: 'all',
-  metadataBase: new URL('http://localhost:3000'),
   alternates: {
     canonical: '/',
   },
