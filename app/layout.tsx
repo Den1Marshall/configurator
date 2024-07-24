@@ -4,10 +4,10 @@ import { MUIThemeProvider } from '@/app/theme';
 import { StateProvider } from '@/app/state';
 import '@/app/index.css';
 import { RSReducedMotion } from '@/shared/ui/RSReducedMotion';
-import { FMReducedMotion } from '@/shared/ui/FMReducedMotion';
 import { startupImage } from './startupImage';
 import { title } from './title';
 import { Analytics } from '@vercel/analytics/react';
+import { FramerMotionConfig } from '@/app/ui';
 
 export const metadata: Metadata = {
   title,
@@ -57,10 +57,10 @@ export default function RootLayout({
         <StateProvider>
           <AppRouterCacheProvider>
             <MUIThemeProvider>
-              <FMReducedMotion>
+              <FramerMotionConfig>
                 {children}
                 <Analytics />
-              </FMReducedMotion>
+              </FramerMotionConfig>
             </MUIThemeProvider>
           </AppRouterCacheProvider>
         </StateProvider>
