@@ -1,6 +1,6 @@
 'use client';
 import { useAppDispatch, useAppSelector } from '@/app/state';
-import { FC } from 'react';
+import { FC, SyntheticEvent } from 'react';
 import { Autocomplete, TextField, createFilterOptions } from '@mui/material';
 import {
   LicensePlateRegion,
@@ -43,7 +43,10 @@ export const SelectRegion: FC = () => {
 
         return options(_, state);
       }}
-      onChange={(_event: any, newValue: LicensePlateRegion | null) => {
+      onChange={(
+        _event: SyntheticEvent,
+        newValue: LicensePlateRegion | null
+      ) => {
         const newRegion = licensePlateRegionsArr.find(
           (region) => region.code === newValue?.code
         )!;

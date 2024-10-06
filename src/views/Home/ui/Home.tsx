@@ -9,7 +9,7 @@ export default function Home() {
   const headersList = headers();
   const userAgent = headersList.get('user-agent');
 
-  let isMobile = userAgent!.match(
+  const isMobile = userAgent!.match(
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
   );
 

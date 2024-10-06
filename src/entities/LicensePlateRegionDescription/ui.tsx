@@ -2,9 +2,8 @@
 import { FC, ReactElement, useEffect, useMemo, useState } from 'react';
 import { Tooltip } from '@mui/material';
 import { useAppSelector } from '@/app/state';
-import { EKV } from '../consts/EKV';
-import { DIIA } from '../consts/DIIA';
-import { SpringScale } from './SpringScale';
+import { EKV } from './consts/EKV';
+import { DIIA } from './consts/DIIA';
 
 export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
   children,
@@ -47,7 +46,6 @@ export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
       open={open}
       onClick={() => setOpen(!open)}
       title={description}
-      TransitionComponent={SpringScale}
       PopperProps={{ sx: { zIndex: 0 } }}
     >
       {children}

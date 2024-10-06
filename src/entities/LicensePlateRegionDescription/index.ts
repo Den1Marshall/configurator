@@ -1,1 +1,1 @@
-export { LicensePlateRegionDescription } from './ui/LicensePlateRegionDescription';
+export { LicensePlateRegionDescription } from './ui';
