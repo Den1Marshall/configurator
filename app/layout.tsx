@@ -8,6 +8,7 @@ import { startupImage } from './startupImage';
 import { title } from './title';
 import { Analytics } from '@vercel/analytics/react';
 import { FramerMotionConfig } from '@/app/ui';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title,
@@ -66,6 +67,7 @@ export default function RootLayout({
         </StateProvider>
         <RSReducedMotion />
       </body>
+      <GoogleAnalytics gaId='G-CR2BSL8KY9' />
     </html>
   );
 }
