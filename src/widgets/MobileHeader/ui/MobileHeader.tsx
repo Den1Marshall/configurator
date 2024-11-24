@@ -10,7 +10,7 @@ import { findClosestDetent } from '../libs/findClosestDetent';
 import { NativeSelectRegion } from '@/features/NativeSelectRegion';
 import { Stack, useTheme } from '@mui/material';
 import { ApproximateCost } from '@/entities/ApproximateCost';
-import { AnimatedPaper } from '@/shared/ui/AnimatedPaper';
+import { AnimatedPaper } from '@/shared/ui';
 
 export const MobileHeader: FC = () => {
   const theme = useTheme();

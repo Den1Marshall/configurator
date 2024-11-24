@@ -10,7 +10,7 @@ import {
   ListItemText,
   useTheme,
 } from '@mui/material';
-import { AnimatedDialog } from '@/shared/ui/AnimatedDialog';
+import { AnimatedDialog } from '@/shared/ui';
 import { useSpring } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';

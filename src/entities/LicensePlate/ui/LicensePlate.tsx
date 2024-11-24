@@ -4,9 +4,9 @@ import { FC, ReactNode, useEffect, useLayoutEffect, useState } from 'react';
 import { LicensePlateFlag } from './LicensePlateFlag';
 import { useAppSelector } from '@/app/state';
 import { LicensePlateLetter } from '..';
-import { AnimatedPaper } from '@/shared/ui/AnimatedPaper';
+import { AnimatedPaper } from '@/shared/ui';
 import { useSpring } from '@react-spring/web';
-import { LICENSE_PLATE_ASPECT_RATIO } from '../consts';
+import { LICENSE_PLATE_ASPECT_RATIO } from '../model/consts';
 
 export const LicensePlate: FC<{ children: ReactNode }> = ({ children }) => {
   const letters = useAppSelector(

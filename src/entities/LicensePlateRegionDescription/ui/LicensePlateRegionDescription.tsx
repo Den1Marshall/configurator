@@ -2,8 +2,7 @@
 import { FC, ReactElement, useEffect, useMemo, useState } from 'react';
 import { Tooltip } from '@mui/material';
 import { useAppSelector } from '@/app/state';
-import { EKV } from './consts/EKV';
-import { DIIA } from './consts/DIIA';
+import { DIIA, EKV } from '../model/consts';
 
 export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
   children,
