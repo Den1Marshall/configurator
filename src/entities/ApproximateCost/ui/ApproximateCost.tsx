@@ -59,16 +59,20 @@ export const ApproximateCost: FC<{ sx?: SxProps; mobile?: boolean }> = ({
   return (
     <>
       <Typography
-        position={'absolute'}
-        left={'50%'}
-        top={'80%'}
-        width={'100%'}
-        fontSize={'min(max(2vh, 1.5vw), 21.6px)'}
-        textAlign={'center'}
-        sx={{ transform: 'translate(-50%, -80%)', cursor: 'pointer', ...sx }}
         onClick={(e) => {
           e.stopPropagation();
           setIsModalOpen(true);
+        }}
+        sx={{
+          position: 'absolute',
+          left: '50%',
+          top: '80%',
+          width: '100%',
+          fontSize: 'min(max(2vh, 1.5vw), 21.6px)',
+          textAlign: 'center',
+          transform: 'translate(-50%, -80%)',
+          cursor: 'pointer',
+          ...sx,
         }}
       >
         {hydrated && cost ? `Приблизна вартість - від ₴${cost}` : 'Безоплатні'}{' '}

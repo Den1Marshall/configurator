@@ -24,7 +24,6 @@ export const SelectRegion: FC = () => {
 
   return (
     <Autocomplete
-      PaperComponent={SelectRegionPaper}
       value={region}
       filterOptions={(_, state) => {
         if (
@@ -62,6 +61,9 @@ export const SelectRegion: FC = () => {
         width: 300,
       }}
       disableClearable
+      slots={{
+        paper: SelectRegionPaper,
+      }}
     />
   );
 };

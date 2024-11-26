@@ -54,14 +54,14 @@ export const LicensePlate: FC<{ children: ReactNode }> = ({ children }) => {
       }}
     >
       <Stack
-        position={'relative'}
-        width={'100%'}
-        height={'100%'}
-        color={color}
         direction={'row'}
-        justifyContent={'flex-end'}
-        bgcolor={'#fff'}
         sx={{
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          color: color,
+          justifyContent: 'flex-end',
+          bgcolor: '#fff',
           aspectRatio: LICENSE_PLATE_ASPECT_RATIO,
         }}
       >

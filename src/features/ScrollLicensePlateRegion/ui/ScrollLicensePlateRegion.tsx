@@ -6,11 +6,11 @@ import { Region } from './Region';
 export const ScrollLicensePlateRegion: FC = () => {
   return (
     <Stack
-      overflow={'scroll'}
-      width={'100%'}
-      height={'100%'}
-      textAlign={'center'}
       sx={{
+        overflow: 'scroll',
+        width: '100%',
+        height: '100%',
+        textAlign: 'center',
         scrollSnapType: 'y mandatory',
         overscrollBehavior: 'contain',
         msOverflowStyle: 'none',

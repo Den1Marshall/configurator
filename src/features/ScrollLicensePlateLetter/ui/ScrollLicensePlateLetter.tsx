@@ -24,10 +24,10 @@ export const ScrollLicensePlateLetter: FC<{ letterPos: LetterPos }> = ({
 
   return (
     <Stack
-      width={'100%'}
-      height={'100%'}
-      textAlign={letterPos === 1 ? 'left' : 'right'}
       sx={{
+        width: '100%',
+        height: '100%',
+        textAlign: letterPos === 1 ? 'left' : 'right',
         overflowX: 'hidden',
         scrollSnapType: 'y mandatory',
         overscrollBehavior: 'contain',

@@ -74,7 +74,9 @@ export const Number: FC<{
       key={number}
       variant='h1'
       component={'p'}
-      color={areNumbersCorrect ? undefined : 'error'}
+      sx={{
+        color: (theme) => (areNumbersCorrect ? null : theme.palette.error.main),
+      }}
     >
       {number}
     </Typography>

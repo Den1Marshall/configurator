@@ -20,7 +20,14 @@ export const Header: FC = () => {
           display: 'flex',
         }}
       >
-        <Stack mx={'auto'} direction={'row'} alignItems={'center'} gap={4}>
+        <Stack
+          direction={'row'}
+          sx={{
+            mx: 'auto',
+            alignItems: 'center',
+            gap: 4,
+          }}
+        >
           <SelectRegion />
           <SelectNumbers />
           <SelectLetters />

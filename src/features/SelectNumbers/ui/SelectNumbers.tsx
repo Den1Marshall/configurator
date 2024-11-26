@@ -41,11 +41,13 @@ export const SelectNumbers: FC<{ touch?: boolean }> = ({ touch }) => {
     <TextField
       fullWidth={touch}
       variant={touch ? 'standard' : 'outlined'}
-      inputProps={{ maxLength: 4, inputMode: 'numeric' }}
       error={!valid}
       value={value}
       onChange={handleChange}
       label={'Введіть номер'}
+      slotProps={{
+        htmlInput: { maxLength: 4, inputMode: 'numeric' },
+      }}
     />
   );
 };

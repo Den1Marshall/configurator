@@ -95,14 +95,22 @@ export const MobileHeader: FC = () => {
           },
         }}
       >
-        <Stack px={2} spacing={4} alignItems={'center'}>
+        <Stack
+          spacing={4}
+          sx={{
+            px: 2,
+            alignItems: 'center',
+          }}
+        >
           <Puller />
           <NativeSelectRegion />
           <Stack
             direction={'row'}
-            alignItems={'center'}
-            width={'100%'}
             spacing={1}
+            sx={{
+              alignItems: 'center',
+              width: '100%',
+            }}
           >
             <SelectNumbers touch />
             <SelectLetters touch />

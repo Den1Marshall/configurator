@@ -1,18 +1,13 @@
 'use client';
-import {
-  CssBaseline,
-  Experimental_CssVarsProvider as CssVarsProvider,
-  getInitColorSchemeScript,
-} from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { FC, ReactNode } from 'react';
 import { theme } from '../model/theme';
 
 export const MUIThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <CssVarsProvider defaultMode='system' theme={theme}>
-      {getInitColorSchemeScript()}
+    <ThemeProvider defaultMode='system' theme={theme}>
       <CssBaseline enableColorScheme />
       {children}
-    </CssVarsProvider>
+    </ThemeProvider>
   );
 };

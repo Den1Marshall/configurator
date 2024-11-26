@@ -45,7 +45,9 @@ export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
       open={open}
       onClick={() => setOpen(!open)}
       title={description}
-      PopperProps={{ sx: { zIndex: 0 } }}
+      slotProps={{
+        popper: { sx: { zIndex: 0 } },
+      }}
     >
       {children}
     </Tooltip>

@@ -78,7 +78,9 @@ export const Letter: FC<{
       key={letter}
       variant='h1'
       component={'p'}
-      color={areLettersCorrect ? undefined : 'error'}
+      sx={{
+        color: (theme) => (areLettersCorrect ? null : theme.palette.error.main),
+      }}
     >
       {letter}
     </Typography>

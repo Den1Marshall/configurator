@@ -44,11 +44,13 @@ export const SelectLetters: FC<{ touch?: boolean }> = ({ touch }) => {
     <TextField
       fullWidth={touch}
       variant={touch ? 'standard' : 'outlined'}
-      inputProps={{ maxLength: 2 }}
       error={!areLettersValid(value.split('') as LicensePlateLetters, true)}
       value={value}
       onChange={handleChange}
       label={'Введіть серію'}
+      slotProps={{
+        htmlInput: { maxLength: 2 },
+      }}
     />
   );
 };

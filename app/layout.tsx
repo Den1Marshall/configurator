@@ -9,6 +9,7 @@ import { title } from './title';
 import { Analytics } from '@vercel/analytics/react';
 import { FramerMotionConfig } from '@/app/ui';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Roboto } from 'next/font/google';
 
 export const metadata: Metadata = {
   title,
@@ -47,6 +48,13 @@ export const viewport: Viewport = {
   ],
 };
 
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '500', '700', '900'],
+  fallback: ['system-ui', 'arial'],
+  variable: '--font-roboto',
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -54,7 +62,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='uk' data-color-scheme='light' suppressHydrationWarning>
-      <body>
+      <body className={roboto.variable}>
         <StateProvider>
           <AppRouterCacheProvider>
             <MUIThemeProvider>
