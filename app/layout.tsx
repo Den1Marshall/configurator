@@ -7,7 +7,7 @@ import { RSReducedMotion } from '@/shared/ui/RSReducedMotion';
 import { startupImage } from './startupImage';
 import { title } from './title';
 import { Analytics } from '@vercel/analytics/react';
-import { FramerMotionConfig } from '@/app/ui';
+import { MotionProvider } from '@/app/providers';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Roboto } from 'next/font/google';
 
@@ -66,10 +66,10 @@ export default function RootLayout({
         <StateProvider>
           <AppRouterCacheProvider>
             <MUIThemeProvider>
-              <FramerMotionConfig>
+              <MotionProvider>
                 {children}
                 <Analytics />
-              </FramerMotionConfig>
+              </MotionProvider>
             </MUIThemeProvider>
           </AppRouterCacheProvider>
         </StateProvider>
