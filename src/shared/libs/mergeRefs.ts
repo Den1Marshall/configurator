@@ -11,7 +11,7 @@ export const mergeRefs =
       if (typeof ref === 'function') {
         ref(value);
       } else if (ref) {
-        (ref as Mutable<React.RefObject<T>>).current = value;
+        (ref as Mutable<React.RefObject<T | null>>).current = value;
       }
     }
   };

@@ -4,7 +4,7 @@ import { LicensePlateRegion } from '..';
 import { LicensePlateNumber } from '../model/types';
 
 export const useScrollSnapResize = (
-  ref: RefObject<HTMLParagraphElement>,
+  ref: RefObject<HTMLParagraphElement | null>,
   currentValue: LicensePlateRegion | LicensePlateNumber | string
 ) => {
   useEffect(() => {

@@ -20,6 +20,16 @@ body {
   padding-left: max(16px, env(safe-area-inset-left));
   overscroll-behavior: none;
   touch-action: pan-x pan-y;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  pointer-events: none;
+}
+
+a {
+  -webkit-touch-callout: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

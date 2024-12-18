@@ -4,9 +4,9 @@ import { Tooltip } from '@mui/material';
 import { useAppSelector } from '@/app/state';
 import { DIIA, EKV } from '../model/consts';
 
-export const LicensePlateRegionDescription: FC<{ children: ReactElement }> = ({
-  children,
-}) => {
+export const LicensePlateRegionDescription: FC<{
+  children: ReactElement<unknown>;
+}> = ({ children }) => {
   const { region } = useAppSelector(
     (state) => state.persistedLicensePlateReducer
   );
