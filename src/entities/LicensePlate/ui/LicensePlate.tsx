@@ -1,4 +1,5 @@
 'use client';
+
 import { Stack } from '@mui/material';
 import { FC, ReactNode, useEffect, useLayoutEffect, useState } from 'react';
 import { LicensePlateFlag } from './LicensePlateFlag';

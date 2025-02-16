@@ -1,4 +1,5 @@
 'use client';
+
 import { useAppDispatch, useAppSelector } from '@/app/state';
 import { LicensePlateNumbers, updateAllNumbers } from '@/entities/LicensePlate';
 import { TextField } from '@mui/material';

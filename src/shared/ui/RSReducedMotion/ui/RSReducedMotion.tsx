@@ -1,4 +1,5 @@
 'use client';
+
 import { FC } from 'react';
 import { useReducedMotion } from '@react-spring/web';
 

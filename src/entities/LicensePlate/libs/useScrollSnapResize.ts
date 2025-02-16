@@ -1,4 +1,5 @@
 'use client';
+
 import { RefObject, useEffect } from 'react';
 import { LicensePlateRegion } from '..';
 import { LicensePlateNumber } from '../model/types';
